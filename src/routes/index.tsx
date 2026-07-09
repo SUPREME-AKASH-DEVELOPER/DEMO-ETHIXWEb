@@ -1,0 +1,563 @@
+import { lazy, Suspense, useEffect, useState } from "react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { motion, useMotionValue, useReducedMotion, useSpring } from "framer-motion";
+import {
+  ArrowUpRight,
+  Bot,
+  BrainCircuit,
+  Cable,
+  Code2,
+  Globe2,
+  Layers3,
+  LifeBuoy,
+  Megaphone,
+  Search,
+  ShieldCheck,
+  Workflow,
+} from "lucide-react";
+
+const LIVE_PATHS = new Set(["/", "/contact"]);
+import { SiteLayout } from "@/components/SiteLayout";
+import { Reveal } from "@/components/Reveal";
+import { RotatingText } from "@/components/RotatingText";
+import { Testimonials } from "@/components/Testimonials";
+import { useTheme } from "@/components/ThemeProvider";
+import { PipelineDiagram } from "@/components/PipelineDiagram";
+import { Container } from "@/components/Container";
+import { GlowBlob } from "@/components/GlowBlob";
+import { SpiderwebNetwork } from "@/components/SpiderwebNetwork";
+import { SystemShift } from "@/components/SystemShift";
+
+const GlobalNetwork = lazy(() =>
+  import("@/components/GlobalNetwork").then((m) => ({ default: m.GlobalNetwork })),
+);
+
+const MotionLink = motion(Link);
+
+/** CTA that gently follows the cursor within a small radius, then springs back. */
+function MagneticCTA({
+  to,
+  className,
+  children,
+}: {
+  to: string;
+  className: string;
+  children: React.ReactNode;
+}) {
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  const springX = useSpring(x, { stiffness: 200, damping: 15, mass: 0.4 });
+  const springY = useSpring(y, { stiffness: 200, damping: 15, mass: 0.4 });
+
+  return (
+    <MotionLink
+      to={to}
+      className={className}
+      style={{ x: springX, y: springY }}
+      onMouseMove={(e: React.MouseEvent<HTMLElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        x.set((e.clientX - (rect.left + rect.width / 2)) * 0.3);
+        y.set((e.clientY - (rect.top + rect.height / 2)) * 0.3);
+      }}
+      onMouseLeave={() => {
+        x.set(0);
+        y.set(0);
+      }}
+    >
+      {children}
+    </MotionLink>
+  );
+}
+
+function useIsSleeping() {
+  const check = () => {
+    // Dev/preview override: ?sleep=1 forces after-hours, ?sleep=0 forces awake
+    if (typeof window !== "undefined") {
+      const p = new URLSearchParams(window.location.search).get("sleep");
+      if (p === "1") return true;
+      if (p === "0") return false;
+    }
+    const h = new Date().getHours();
+    return h >= 17 || h < 8;
+  };
+  // Initialize to a fixed value so the first client render matches the server-rendered
+  // markup exactly (avoids a hydration mismatch); the real value is applied post-mount.
+  const [sleeping, setSleeping] = useState(false);
+  useEffect(() => {
+    setSleeping(check());
+    const id = setInterval(() => setSleeping(check()), 60_000);
+    return () => clearInterval(id);
+  }, []);
+  return sleeping;
+}
+
+export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Ethixweb - We run the tech. You run the business." },
+      {
+        name: "description",
+        content:
+          "We manage your digital operation, from AI booking agents and CRM integrations to websites, SEO and ads.",
+      },
+      { property: "og:title", content: "Ethixweb - Premium Technology Partner" },
+      {
+        property: "og:description",
+        content:
+          "AI automation, websites, web applications, CRM integrations, SEO, ads, maintenance, and digital operations.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://ethixweb.com/ethixweb.png" },
+      { property: "og:url", content: "https://ethixweb.com/" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Ethixweb - We run the tech. You run the business." },
+      {
+        name: "twitter:description",
+        content:
+          "We manage your digital operation, from AI booking agents and CRM integrations to websites, SEO and ads.",
+      },
+      { name: "twitter:image", content: "https://ethixweb.com/ethixweb.png" },
+      { name: "robots", content: "index, follow" },
+    ],
+    links: [{ rel: "canonical", href: "https://ethixweb.com/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "ProfessionalService",
+          name: "Ethixweb",
+          url: "https://ethixweb.com",
+          logo: "https://ethixweb.com/ethixweb.png",
+          description: "AI automation, websites, CRM integrations, SEO, and digital operations.",
+          email: "info@ethixweb.com",
+          openingHours: "Mo-Fr 09:00-17:00",
+          areaServed: "US",
+          sameAs: [
+            "https://www.linkedin.com/company/ethixweb/",
+            "https://www.instagram.com/ethix.web/",
+          ],
+        }),
+      },
+    ],
+  }),
+  component: Home,
+});
+
+const services = [
+  {
+    icon: Bot,
+    title: "AI Receptionists",
+    desc: "Voice and chat agents that answer, qualify, route, and book leads while your team stays focused.",
+    to: "/ai-automation",
+  },
+  {
+    icon: BrainCircuit,
+    title: "AI Automation",
+    desc: "Workflow automation, internal copilots, data syncs, and operational systems built for real teams.",
+    to: "/ai-automation",
+  },
+  {
+    icon: Globe2,
+    title: "Websites",
+    desc: "Fast, premium websites with sharp positioning, conversion paths, analytics, and SEO foundations.",
+    to: "/web-development",
+  },
+  {
+    icon: Code2,
+    title: "Web Applications",
+    desc: "Custom portals, dashboards, booking flows, and software tools engineered for daily operations.",
+    to: "/web-development",
+  },
+  {
+    icon: Cable,
+    title: "CRM Integrations",
+    desc: "HubSpot, GoHighLevel, Zapier, forms, calls, calendars, and pipelines connected into one system.",
+    to: "/services",
+  },
+  {
+    icon: Search,
+    title: "SEO",
+    desc: "Technical SEO, local SEO, content systems, and measurement that compound into durable demand.",
+    to: "/services",
+  },
+  {
+    icon: LifeBuoy,
+    title: "Maintenance & Support",
+    desc: "Fast fixes, uptime care, site updates, reporting, and a responsive team when something needs attention.",
+    to: "/services",
+  },
+  {
+    icon: Workflow,
+    title: "Digital Operations",
+    desc: "A senior tech team for your digital stack, from strategy through launch, support, and optimization.",
+    to: "/services",
+  },
+];
+
+const metrics = [
+  { value: "24/7", label: "global coverage", desc: "Always on call, wherever you're located." },
+  { value: "<1h", label: "support response", desc: "Quick answers from a real support team." },
+  { value: "US", label: "operations focus", desc: "United States of America, our home base." },
+  { value: "AI", label: "automation ready", desc: "Set up for AI-driven tools and workflows." },
+];
+
+const stack = ["AI agents", "CRM", "Websites", "SEO", "Ads", "Analytics", "Automations", "Support"];
+
+function Home() {
+  return (
+    <SiteLayout>
+      <Hero />
+      <SignalStrip />
+      <Services />
+      <Suspense fallback={null}>
+        <GlobalNetwork />
+      </Suspense>
+      <Testimonials />
+      <OperatingSystem />
+      <Proof />
+      <CTA />
+    </SiteLayout>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="relative -mt-24 overflow-hidden bg-gradient-hero pb-4 pt-20 sm:pb-28 sm:pt-36 lg:pt-40">
+      <div className="absolute inset-0 grid-bg opacity-50" />
+      <GlowBlob size="lg" color="primary" blur={100} className="left-1/2 top-0 -translate-x-1/2" />
+      <GlowBlob size="md" color="primary" blur={100} className="bottom-0 right-0" />
+
+      <Container className="relative grid items-center gap-14 pt-4 sm:pt-12 lg:grid-cols-[0.95fr_1.05fr]">
+        <div className="relative z-10">
+          <Reveal>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">
+              <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_18px_rgba(138,24,28,0.9)]" />
+              Premium digital operations team
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h1 className="mt-7 max-w-5xl pb-2 text-[clamp(2.61rem,6.34vw,6.16rem)] font-extrabold leading-[0.9] text-gradient">
+              We run the{" "}
+              <span className="tech-3d relative inline-block" data-text="tech.">
+                tech.
+              </span>
+              <br />
+              You run the{" "}
+              <span
+                className="accent-shimmer relative inline-block bg-clip-text text-transparent"
+                data-text="business."
+                style={{
+                  backgroundImage: "linear-gradient(135deg, #D13A40 0%, #B32228 50%, #8A181C 100%)",
+                }}
+              >
+                business.
+              </span>
+            </h1>
+          </Reveal>
+          <Reveal delay={0.16}>
+            <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-foreground/75 sm:text-xl">
+              We manage your digital operation, from AI booking agents and CRM integrations to
+              websites, SEO and ads.
+            </p>
+          </Reveal>
+          <Reveal delay={0.24}>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <MagneticCTA
+                to="/contact"
+                className="shine-cta magnetic group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-bold text-primary-foreground shadow-glow"
+              >
+                Start a project
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
+              </MagneticCTA>
+              <div
+                aria-disabled="true"
+                title="Coming soon"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4.5 px-7 py-3.5 font-bold text-foreground/40 backdrop-blur-xl cursor-not-allowed select-none"
+              >
+                See our work
+                <ArrowUpRight className="h-4 w-4" />
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal delay={0.18}>
+          <div className="relative z-0 lg:-ml-8">
+            <OperationsVisual />
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+const STARFIELD_DOTS = [
+  { top: "8%", left: "12%", color: "#3b82f6", size: 5, blur: 6 },
+  { top: "18%", left: "78%", color: "#ef4444", size: 4, blur: 5 },
+  { top: "30%", left: "88%", color: "#3b82f6", size: 6, blur: 8 },
+  { top: "42%", left: "70%", color: "#ef4444", size: 3, blur: 4 },
+  { top: "55%", left: "82%", color: "#3b82f6", size: 5, blur: 7 },
+  { top: "65%", left: "15%", color: "#ef4444", size: 4, blur: 5 },
+  { top: "72%", left: "60%", color: "#3b82f6", size: 7, blur: 10 },
+  { top: "25%", left: "22%", color: "#3b82f6", size: 3, blur: 4 },
+  { top: "50%", left: "30%", color: "#ef4444", size: 5, blur: 6 },
+  { top: "80%", left: "40%", color: "#3b82f6", size: 4, blur: 5 },
+  { top: "10%", left: "55%", color: "#ef4444", size: 3, blur: 4 },
+  { top: "38%", left: "8%", color: "#3b82f6", size: 6, blur: 8 },
+  { top: "60%", left: "92%", color: "#ef4444", size: 4, blur: 6 },
+  { top: "85%", left: "72%", color: "#3b82f6", size: 5, blur: 7 },
+  { top: "15%", left: "40%", color: "#ef4444", size: 3, blur: 4 },
+] as const;
+
+function OperationsVisual() {
+  const sleeping = useIsSleeping();
+  const { theme } = useTheme();
+  const reduceMotion = useReducedMotion();
+
+  // Motion values driven by window-level cursor (not container-bound). The web itself is
+  // static - only the glass emblem at the hub reads these for its tilt.
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+
+  useEffect(() => {
+    if (sleeping || reduceMotion) return;
+    let raf = 0;
+    let idleTimer: ReturnType<typeof setTimeout>;
+    let pendingX = 0;
+    let pendingY = 0;
+
+    const flush = () => {
+      mx.set(pendingX);
+      my.set(pendingY);
+      raf = 0;
+    };
+    const onMove = (e: MouseEvent) => {
+      pendingX = (e.clientX / window.innerWidth - 0.5) * 2;
+      pendingY = (e.clientY / window.innerHeight - 0.5) * 2;
+      if (!raf) raf = requestAnimationFrame(flush);
+      clearTimeout(idleTimer);
+      idleTimer = setTimeout(() => {
+        mx.set(0);
+        my.set(0);
+      }, 3500);
+    };
+    const onOrient = (e: DeviceOrientationEvent) => {
+      if (e.gamma !== null) pendingX = Math.max(-1, Math.min(1, e.gamma / 25));
+      if (e.beta !== null) pendingY = Math.max(-1, Math.min(1, (e.beta - 45) / 25));
+      if (!raf) raf = requestAnimationFrame(flush);
+    };
+    window.addEventListener("mousemove", onMove, { passive: true });
+    window.addEventListener("deviceorientation", onOrient, { passive: true });
+    return () => {
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("deviceorientation", onOrient);
+      if (raf) cancelAnimationFrame(raf);
+      clearTimeout(idleTimer);
+    };
+  }, [sleeping, reduceMotion, mx, my]);
+
+  return (
+    <div className="relative mx-auto w-full max-w-190">
+      <div className="absolute inset-6 rounded-full bg-primary/15 blur-[70px]" />
+      <div className="relative h-80 sm:h-115 lg:h-130">
+        {/* Interactive spiderweb network: artwork + overlay strands/nodes/pulses, with
+         * the glass emblem at the hub and the badges wired into the web */}
+        <SpiderwebNetwork mx={mx} my={my} reduceMotion={!!reduceMotion} theme={theme} />
+        {/* starfield dots */}
+        {STARFIELD_DOTS.map((dot, i) => (
+          <span
+            key={i}
+            className="pointer-events-none absolute rounded-full"
+            style={{
+              top: dot.top,
+              left: dot.left,
+              width: dot.size,
+              height: dot.size,
+              background: dot.color,
+              boxShadow: `0 0 ${dot.blur}px ${dot.blur / 2}px ${dot.color}`,
+              opacity: 0.7,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function SignalStrip() {
+  return (
+    <div className="signal-strip overflow-hidden border-y py-7">
+      <div className="flex gap-14 whitespace-nowrap animate-marquee">
+        {[...stack, ...stack, ...stack].map((item, index) => (
+          <span
+            key={`${item}-${index}`}
+            className="flex items-center gap-14 text-xl font-extrabold uppercase tracking-[0.32em] text-muted-foreground/70"
+          >
+            {item}
+            <span className="h-2 w-2 rounded-full bg-primary" />
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function Services() {
+  return (
+    <section className="relative overflow-hidden py-16">
+      <GlowBlob size="lg" color="brand" blur={140} className="left-0 top-1/4" />
+      <Container className="relative">
+        <Reveal>
+          <div className="max-w-3xl">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-primary">
+              Robust Solutions
+            </p>
+            <h2 className="pb-1 text-6xl font-extrabold leading-tight text-gradient">
+              Senior operators for the systems that grow the{" "}
+              <RotatingText
+                texts={["business.", "growth.", "revenue.", "pipeline."]}
+                mainClassName="align-bottom"
+                elementLevelClassName="text-primary"
+                staggerFrom="last"
+                staggerDuration={0.02}
+                rotationInterval={3500}
+                transition={{ type: "spring", damping: 28, stiffness: 380 }}
+              />
+            </h2>
+          </div>
+        </Reveal>
+        <div className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {services.map((service, index) => (
+            <Reveal key={service.title} delay={index * 0.04}>
+              <div className="relative h-full">
+                <div className="premium-card relative h-full overflow-hidden rounded-2xl p-6 cursor-default">
+                  <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-primary/0 blur-3xl" />
+                  <service.icon className="h-7 w-7 text-primary/60" strokeWidth={1.7} />
+                  <h3 className="mt-7 text-xl font-bold text-foreground">{service.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-foreground/75">{service.desc}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+const OS_ROWS = [
+  {
+    icon: ShieldCheck,
+    title: "Trustworthy systems",
+    desc: "Clean architecture, secure defaults, and reliable handoff across your stack.",
+  },
+  {
+    icon: Layers3,
+    title: "Layered execution",
+    desc: "Strategy, design, development, automation, launch, and support under one roof.",
+  },
+  {
+    icon: Megaphone,
+    title: "Growth connected",
+    desc: "SEO, ads, analytics, forms, calls, and CRM data aligned around revenue.",
+  },
+];
+
+function OperatingSystem() {
+  return (
+    <section className="py-8 sm:py-16">
+      <Container>
+        <Reveal>
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="mb-4 text-sm font-bold uppercase tracking-[0.24em] text-primary">
+              Operating model
+            </p>
+            <h2 className="pb-1 text-6xl font-extrabold leading-tight text-gradient">
+              Built like an internal technology team.
+            </h2>
+            <p className="mt-6 text-lg leading-8 text-muted-foreground">
+              Ethixweb brings software, automation, marketing operations, and support into one
+              disciplined delivery system.
+            </p>
+            <p className="mt-3 font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground">
+              hover, tap, or tab through each stage
+            </p>
+          </div>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <div className="mt-14">
+            <PipelineDiagram stages={OS_ROWS} />
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+function Proof() {
+  return (
+    <section className="py-7 sm:py-14">
+      <Container className="grid grid-cols-2 items-stretch gap-4 lg:grid-cols-4">
+        {metrics.map((metric, index) => (
+          <Reveal key={metric.label} delay={index * 0.05} className="h-full">
+            <div className="premium-card web-card metric-flip rounded-2xl p-4 sm:p-6 text-center h-full flex flex-col items-center justify-center transition hover:bg-white/6">
+              <div className="metric-flip-inner relative w-full">
+                <div className="metric-flip-face flex flex-col items-center justify-center">
+                  <div className="text-xl sm:text-4xl font-extrabold text-gradient-brand whitespace-nowrap">
+                    {metric.value}
+                  </div>
+                  <div className="mt-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest text-muted-foreground">
+                    {metric.label}
+                  </div>
+                </div>
+                <div className="metric-flip-face metric-flip-back absolute inset-0 flex items-center justify-center px-2">
+                  <p className="text-xs sm:text-sm font-semibold leading-snug text-foreground/90">
+                    {metric.desc}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        ))}
+      </Container>
+    </section>
+  );
+}
+
+function CTA() {
+  return (
+    <section className="py-8 sm:py-16">
+      <Reveal>
+        <Container className="relative overflow-hidden rounded-4xl bg-card shadow-lg lg:aspect-25/12">
+          <div className="grid grid-cols-1 items-center gap-8 px-8 py-14 sm:px-12 sm:py-16 lg:h-full lg:grid-cols-[1.13fr_1fr] lg:items-stretch lg:gap-2 lg:px-0 lg:py-0">
+            <div className="relative z-10 flex flex-col justify-center text-center lg:pl-20 lg:pr-6 lg:text-left">
+              <p className="text-xs font-extrabold uppercase tracking-[0.22em] text-primary sm:text-sm">
+                Robust Solutions
+              </p>
+              <h2 className="mt-4 font-display text-[2.75rem] font-extrabold leading-[1.05] tracking-tight text-card-foreground sm:text-6xl lg:text-[5rem]">
+                Want to work
+                <br />
+                with <span className="text-primary">us?</span>
+              </h2>
+              <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-muted-foreground sm:text-xl lg:text-xl lg:mx-0">
+                Tired of being account #200 at a big agency? Work with a senior team that knows your
+                business by name.
+              </p>
+              <Link
+                to="/contact"
+                className="mt-9 inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 font-bold text-primary-foreground shadow-glow transition-transform hover:scale-[1.02]"
+              >
+                Get in touch <ArrowUpRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="relative mx-auto h-[340px] w-full max-w-[340px] overflow-hidden sm:h-[400px] sm:max-w-[420px] lg:h-full lg:max-w-none">
+              <SystemShift />
+            </div>
+          </div>
+        </Container>
+      </Reveal>
+    </section>
+  );
+}

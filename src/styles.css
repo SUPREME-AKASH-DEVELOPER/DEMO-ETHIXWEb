@@ -1,0 +1,1289 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@font-face {
+  font-family: "Kumbh Sans";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/fonts/kumbh-sans-var.woff2") format("woff2");
+}
+
+@custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
+
+@theme inline {
+  --font-display: "Kumbh Sans", system-ui, sans-serif;
+  --font-sans: "Kumbh Sans", system-ui, sans-serif;
+  /* Reserved exclusively for stats/metrics/status/step-labels - the "technical credibility"
+     signal from the Signal Systems plan. No new webfont: the standard cross-platform mono
+     stack gets the same visual effect at zero load cost. */
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono", monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-charcoal: var(--charcoal);
+
+  /* ── Extra breakpoints: `xs` gives 320-479px its own step instead of being
+     lumped in with 480-639px; `3xl` lets ultra-wide/4K containers get a wider
+     cap + extra gutter instead of stretching content into empty space. ── */
+  --breakpoint-xs: 30rem;
+  --breakpoint-3xl: 120rem;
+
+  /* ── Fluid type scale: overriding Tailwind's own --text-* tokens with
+     clamp() makes every existing text-2xl..text-9xl utility fluid site-wide
+     with no per-component changes. Scales between a 320px and a 1536px
+     viewport, then holds steady past that so headings don't keep growing on
+     ultra-wide/4K displays. ── */
+  --text-2xl: clamp(1.375rem, 1.375rem + ((1.5 - 1.375) * ((100vw - 20rem) / 76)), 1.5rem);
+  --text-3xl: clamp(1.625rem, 1.625rem + ((1.875 - 1.625) * ((100vw - 20rem) / 76)), 1.875rem);
+  --text-4xl: clamp(1.875rem, 1.875rem + ((2.25 - 1.875) * ((100vw - 20rem) / 76)), 2.25rem);
+  --text-5xl: clamp(2.25rem, 2.25rem + ((3 - 2.25) * ((100vw - 20rem) / 76)), 3rem);
+  --text-6xl: clamp(2.75rem, 2.75rem + ((3.75 - 2.75) * ((100vw - 20rem) / 76)), 3.75rem);
+  --text-7xl: clamp(3.25rem, 3.25rem + ((4.5 - 3.25) * ((100vw - 20rem) / 76)), 4.5rem);
+  --text-8xl: clamp(3.75rem, 3.75rem + ((6 - 3.75) * ((100vw - 20rem) / 76)), 6rem);
+  --text-9xl: clamp(4.5rem, 4.5rem + ((8 - 4.5) * ((100vw - 20rem) / 76)), 8rem);
+}
+
+:root,
+:root.dark,
+:root.light {
+  --radius: 0.625rem;
+  --background: #0c0d10;
+  --foreground: #f5efee;
+  --charcoal: #100f18;
+  --card: #180f0f;
+  --card-foreground: #f5efee;
+  --popover: #100f18;
+  --popover-foreground: #f5efee;
+  --primary: #c0272d;
+  --primary-foreground: #f8f3f2;
+  --primary-glow: #c0272d;
+  --secondary: #27121d;
+  --secondary-foreground: #f5efee;
+  --muted: #180f0f;
+  --muted-foreground: #b0a39f;
+  --accent: #391516;
+  --accent-foreground: #f8f3f2;
+  --destructive: #c0272d;
+  --destructive-foreground: #fafafa;
+  --border: rgba(255, 255, 255, 0.07);
+  --input: #100f18;
+  --ring: #c0272d;
+  --gradient-brand: linear-gradient(135deg, #8a181c 0%, #391516 48%, #27121d 100%);
+  --gradient-hero:
+    radial-gradient(ellipse 80% 55% at 72% 6%, rgba(138, 24, 28, 0.34), transparent 68%),
+    radial-gradient(ellipse 65% 46% at 18% 18%, rgba(57, 21, 22, 0.55), transparent 64%),
+    linear-gradient(180deg, #0c0d10 0%, #100f18 48%, #180f0f 100%);
+  --gradient-glow: radial-gradient(circle at center, rgba(138, 24, 28, 0.34), transparent 62%);
+  --shadow-glow: 0 0 48px rgba(138, 24, 28, 0.24), 0 0 120px rgba(57, 21, 22, 0.18);
+
+  /* ── Shadow system: 3-tier elevation, consistent across cards/panels ── */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-md: 0 12px 28px -16px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --shadow-lg: 0 20px 48px -20px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.07);
+
+  /* ── Motion system: one easing/duration scale shared by Reveal, SignalTrace,
+     SystemConstellation, and the hero scene, instead of hand-picked-per-component. ── */
+  --ease-premium: 0.22, 1, 0.36, 1;
+  --duration-fast: 0.24s;
+  --duration-base: 0.45s;
+  --duration-slow: 0.9s;
+
+  /* ── Quarter-web mask geometry for .web-card (top-right corner fan) ── */
+  --web-card-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round'%3E%3Cline x1='200' y1='0' x2='20' y2='0'/%3E%3Cline x1='200' y1='0' x2='33.7' y2='68.9'/%3E%3Cline x1='200' y1='0' x2='72.7' y2='127.3'/%3E%3Cline x1='200' y1='0' x2='131.1' y2='166.3'/%3E%3Cline x1='200' y1='0' x2='200' y2='180'/%3E%3Cpolyline points='155,0 158.4,17.2 168.2,31.8 182.8,41.6 200,45'/%3E%3Cpolyline points='115,0 121.5,32.5 139.9,60.1 167.5,78.5 200,85'/%3E%3Cpolyline points='75,0 84.5,47.8 111.6,88.4 152.2,115.5 200,125'/%3E%3Cpolyline points='35,0 47.6,63.1 83.3,116.7 136.9,152.4 200,165'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ── Light mode token overrides ───────────────────────────────────────────── */
+:root.light {
+  --background: #fff8f8;
+  --foreground: #16100f;
+  --charcoal: #ede9e5;
+  --card: #ffffff;
+  --card-foreground: #16100f;
+  --popover: #ffffff;
+  --popover-foreground: #16100f;
+  --primary: #c0272d;
+  --primary-foreground: #ffffff;
+  --primary-glow: #8a181c;
+  --secondary: #f0ebe7;
+  --secondary-foreground: #16100f;
+  --muted: #ede9e5;
+  --muted-foreground: #7a716b;
+  --accent: #f0e8e8;
+  --accent-foreground: #16100f;
+  --destructive: #8a181c;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: #ede9e5;
+  --ring: #8a181c;
+  --gradient-brand: linear-gradient(135deg, #8a181c 0%, #c0403c 48%, #e07070 100%);
+  --gradient-hero:
+    radial-gradient(ellipse 90% 70% at 78% 5%, rgba(192, 39, 45, 0.45), transparent 58%),
+    radial-gradient(ellipse 65% 55% at 10% 25%, rgba(160, 28, 32, 0.28), transparent 55%),
+    radial-gradient(ellipse 55% 50% at 55% 60%, rgba(138, 24, 28, 0.18), transparent 65%),
+    linear-gradient(180deg, #fff5f5 0%, #fef0f0 50%, #fce8e8 100%);
+  --gradient-glow: radial-gradient(circle at center, rgba(138, 24, 28, 0.14), transparent 62%);
+  --shadow-glow: 0 0 48px rgba(138, 24, 28, 0.16), 0 0 120px rgba(138, 24, 28, 0.09);
+
+  /* ── Shadow system: 3-tier elevation, consistent across cards/panels ── */
+  --shadow-sm: 0 1px 2px rgba(20, 16, 15, 0.04), 0 1px 3px rgba(20, 16, 15, 0.05);
+  --shadow-md: 0 8px 20px -8px rgba(20, 16, 15, 0.12), 0 2px 5px rgba(20, 16, 15, 0.06);
+  --shadow-lg: 0 16px 40px -16px rgba(20, 16, 15, 0.16), 0 4px 10px rgba(20, 16, 15, 0.07);
+}
+
+html {
+  background: var(--background);
+  color-scheme: light;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html::-webkit-scrollbar {
+  display: none;
+}
+html.light {
+  background: var(--background);
+  color-scheme: light;
+}
+html.dark {
+  background: var(--background);
+  color-scheme: dark;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    min-width: 320px;
+    max-width: 100%;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    background-color: var(--color-background);
+    background-image:
+      radial-gradient(ellipse 60% 70% at 0% 20%, rgba(16, 15, 24, 0.85), transparent 60%),
+      radial-gradient(ellipse 55% 65% at 100% 80%, rgba(138, 24, 28, 0.28), transparent 65%),
+      radial-gradient(ellipse 45% 55% at 100% 25%, rgba(24, 15, 15, 0.55), transparent 65%),
+      linear-gradient(95deg, #100f18 0%, #0c0d10 45%, #0c0d10 60%, #180f0f 100%);
+    background-attachment: fixed;
+    /* iOS Safari doesn't support background-attachment:fixed on body well — override below */
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: geometricPrecision;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-display);
+    letter-spacing: 0;
+  }
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+}
+
+@layer utilities {
+  .bg-gradient-brand {
+    background: var(--gradient-brand);
+  }
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .bg-gradient-glow {
+    background: var(--gradient-glow);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-sm {
+    box-shadow: var(--shadow-sm);
+  }
+  .shadow-md {
+    box-shadow: var(--shadow-md);
+  }
+  .shadow-lg,
+  .shadow-elegant {
+    box-shadow: var(--shadow-lg);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .glass {
+    background: linear-gradient(135deg, rgba(58, 18, 22, 0.62), rgba(22, 12, 13, 0.48));
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+    backdrop-filter: blur(12px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: var(--shadow-sm);
+    transition:
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+  .glass:hover {
+    box-shadow: var(--shadow-md);
+  }
+
+  .glass-strong {
+    background: linear-gradient(135deg, rgba(58, 18, 22, 0.88), rgba(18, 10, 11, 0.82));
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .premium-card {
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+      linear-gradient(180deg, rgba(58, 18, 22, 0.82), rgba(20, 10, 11, 0.78));
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    box-shadow:
+      var(--shadow-sm),
+      inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+    backdrop-filter: blur(12px) saturate(130%);
+    transition:
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+  }
+  .premium-card:hover {
+    box-shadow:
+      var(--shadow-md),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* ── Corner spiderweb accent for cards (echoes the Hero's SpiderwebNetwork) ──
+     A quarter-web is masked into the card's top-right corner: near-invisible at
+     rest, it fades in and "energises" on hover via a shimmer sweep confined to
+     the strands by the same mask. */
+  .web-card {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .web-card > * {
+    position: relative;
+    z-index: 1;
+  }
+  .web-card::before,
+  .web-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image: var(--web-card-mask);
+    mask-image: var(--web-card-mask);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: top right;
+    mask-position: top right;
+    /* Fixed, equal width/height so the fan keeps its shape on every card -
+       a percentage size stretches independently per axis and warps it on
+       wide/short cards. */
+    -webkit-mask-size: 120px 120px;
+    mask-size: 120px 120px;
+  }
+  @media (max-width: 480px) {
+    .web-card::before,
+    .web-card::after {
+      -webkit-mask-size: 84px 84px;
+      mask-size: 84px 84px;
+    }
+  }
+  .web-card::before {
+    background: rgba(233, 54, 63, 0.9);
+    opacity: 0.06;
+    filter: drop-shadow(0 0 2px rgba(220, 30, 40, 0.3));
+    transition:
+      opacity 0.6s cubic-bezier(var(--ease-premium)),
+      filter 0.6s cubic-bezier(var(--ease-premium));
+  }
+  .web-card::after {
+    background: linear-gradient(
+      115deg,
+      transparent 38%,
+      rgba(255, 180, 184, 0.9) 48%,
+      rgba(255, 255, 255, 0.95) 50%,
+      rgba(255, 180, 184, 0.9) 52%,
+      transparent 62%
+    );
+    background-size: 320% 320%;
+    background-position: 130% -30%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .web-card:hover::before,
+  .web-card:focus-within::before {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 8px rgba(255, 90, 100, 0.6))
+      drop-shadow(0 0 18px rgba(220, 30, 40, 0.35));
+  }
+  .web-card:hover::after,
+  .web-card:focus-within::after {
+    opacity: 1;
+    animation: web-card-flow 2.6s linear infinite;
+  }
+  @keyframes web-card-flow {
+    0% {
+      background-position: 130% -30%;
+    }
+    100% {
+      background-position: -40% 100%;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .web-card:hover::after,
+    .web-card:focus-within::after {
+      animation: none;
+      opacity: 0.5;
+    }
+  }
+
+  /* ── Metric card flip - hover reveals a short plain-language explanation
+     on the back face instead of the raw stat, e.g. "US First" → "Proudly
+     based in the United States." ── */
+  .metric-flip {
+    perspective: 1200px;
+  }
+  .metric-flip-inner {
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(var(--ease-premium));
+  }
+  .metric-flip:hover .metric-flip-inner,
+  .metric-flip:focus-within .metric-flip-inner {
+    transform: rotateY(180deg);
+  }
+  .metric-flip-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  .metric-flip-back {
+    transform: rotateY(180deg);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .metric-flip-inner {
+      transition: opacity 0.3s ease;
+      transform: none !important;
+    }
+    .metric-flip-face {
+      transition: opacity 0.3s ease;
+    }
+    .metric-flip-face:not(.metric-flip-back) {
+      opacity: 1;
+    }
+    .metric-flip:hover .metric-flip-face:not(.metric-flip-back),
+    .metric-flip:focus-within .metric-flip-face:not(.metric-flip-back) {
+      opacity: 0;
+    }
+    .metric-flip-back {
+      transform: none;
+      opacity: 0;
+    }
+    .metric-flip:hover .metric-flip-back,
+    .metric-flip:focus-within .metric-flip-back {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pipeline-flow-x {
+    to {
+      background-position: 20px 0;
+    }
+  }
+  @keyframes pipeline-flow-y {
+    to {
+      background-position: 0 20px;
+    }
+  }
+  .pipeline-connector {
+    align-self: center;
+    flex-shrink: 0;
+    height: 2px;
+    width: 28px;
+    opacity: 0.45;
+    background-image: repeating-linear-gradient(90deg, var(--primary) 0 6px, transparent 6px 14px);
+    background-size: 20px 2px;
+    animation: pipeline-flow-x 0.6s linear infinite;
+  }
+  @media (max-width: 1023px) {
+    .pipeline-connector {
+      width: 2px;
+      height: 28px;
+      margin-inline: auto;
+      background-image: repeating-linear-gradient(
+        180deg,
+        var(--primary) 0 6px,
+        transparent 6px 14px
+      );
+      background-size: 2px 20px;
+      animation-name: pipeline-flow-y;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pipeline-connector {
+      animation: none;
+    }
+  }
+
+  .platform-ledge {
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(225, 200, 202, 0.65) 45%,
+      rgba(138, 24, 28, 0.55) 100%
+    );
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.95) inset,
+      0 -2px 4px rgba(0, 0, 0, 0.25) inset,
+      0 7px 14px rgba(0, 0, 0, 0.3),
+      0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #ded2d4 52%, #a97b80 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #f0a4a8 0%, #8a181c 48%, #391516 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(circle at center, black, transparent 72%);
+    mask-image: radial-gradient(circle at center, black, transparent 72%);
+  }
+
+  .bg-dot-grid {
+    background-image: radial-gradient(currentColor 1.4px, transparent 1.6px);
+    background-size: 16px 16px;
+  }
+
+  .noise {
+    position: relative;
+  }
+  .noise::after {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    z-index: 1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity: 0.035;
+    mix-blend-mode: soft-light;
+    animation: grain 8s steps(10) infinite;
+  }
+
+  .site-vignette::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        circle at 50% 8%,
+        transparent 0 36%,
+        rgba(12, 13, 16, 0.36) 72%,
+        rgba(12, 13, 16, 0.82) 100%
+      ),
+      linear-gradient(180deg, rgba(12, 13, 16, 0), rgba(12, 13, 16, 0.34));
+  }
+
+  .dust-field {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.18) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 74% 22%, rgba(138, 24, 28, 0.22) 0 1px, transparent 1.5px),
+      radial-gradient(circle at 44% 72%, rgba(255, 255, 255, 0.12) 0 1px, transparent 1.5px);
+    background-size:
+      260px 260px,
+      340px 340px,
+      420px 420px;
+    opacity: 0.24;
+  }
+
+  .ambient-red {
+    background:
+      radial-gradient(circle at 65% 20%, rgba(138, 24, 28, 0.36), transparent 36%),
+      radial-gradient(circle at 20% 80%, rgba(57, 21, 22, 0.45), transparent 42%);
+  }
+
+  .magnetic {
+    transform: translate3d(0, 0, 0);
+    transition:
+      transform 180ms ease,
+      box-shadow 180ms ease,
+      border-color 180ms ease,
+      background-color 180ms ease;
+  }
+  .magnetic:hover {
+    transform: translate3d(0, -2px, 0) scale(1.015);
+  }
+
+  .shine-cta {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .shine-cta::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    left: -75%;
+    width: 45%;
+    background: linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 30%,
+      rgba(255, 255, 255, 0.45) 50%,
+      rgba(255, 255, 255, 0.05) 70%,
+      transparent 100%
+    );
+    transform: skewX(-18deg);
+    transition: left 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    pointer-events: none;
+  }
+  .shine-cta:hover::after {
+    left: 125%;
+  }
+
+  @keyframes laptop-screen-pulse {
+    0%,
+    100% {
+      opacity: 0.08;
+      transform: scale(0.92);
+    }
+    50% {
+      opacity: 0.26;
+      transform: scale(1.06);
+    }
+  }
+  .laptop-screen-glow {
+    animation: laptop-screen-pulse 3.8s ease-in-out infinite;
+    will-change: opacity, transform;
+  }
+  @keyframes zzz-rise {
+    0% {
+      opacity: 0;
+      transform: translateY(0) scale(0.55) rotate(-6deg);
+    }
+    18% {
+      opacity: 0.6;
+    }
+    55% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-72px) scale(1.12) rotate(5deg);
+    }
+  }
+  .zzz-particle {
+    position: absolute;
+    font-family: var(--font-display);
+    font-weight: 700;
+    color: var(--primary);
+    pointer-events: none;
+    animation: zzz-rise 6.5s ease-in-out infinite;
+    will-change: transform, opacity;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .laptop-screen-glow {
+      animation: none;
+      transform: none;
+    }
+    .zzz-particle {
+      animation: none;
+      opacity: 0;
+    }
+  }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.45;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.86;
+      transform: scale(1.05);
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      /* Content is rendered as 3 duplicated copies (see SignalStrip in index.tsx) so the
+         loop point must be -1/3, not -1/2, or the strip visibly snaps each cycle. */
+      transform: translateX(-33.3333%);
+    }
+  }
+  @keyframes grain {
+    0%,
+    100% {
+      transform: translate(0, 0);
+    }
+    10% {
+      transform: translate(-3%, -2%);
+    }
+    20% {
+      transform: translate(-5%, 1%);
+    }
+    30% {
+      transform: translate(3%, -3%);
+    }
+    40% {
+      transform: translate(2%, 4%);
+    }
+    50% {
+      transform: translate(-2%, 3%);
+    }
+    60% {
+      transform: translate(-4%, -1%);
+    }
+    70% {
+      transform: translate(4%, 2%);
+    }
+    80% {
+      transform: translate(-1%, -4%);
+    }
+    90% {
+      transform: translate(2%, 3%);
+    }
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+    will-change: transform;
+  }
+  /* Gentler drift for the glass emblem at the spiderweb's hub. Animates `translate`
+     (not `transform`) so it composes with the Tailwind centering translate on the same
+     element and the framer-motion tilt transform on its child. */
+  @keyframes emblem-float {
+    0%,
+    100% {
+      translate: -50% -50%;
+    }
+    50% {
+      translate: -50% calc(-50% - 5px);
+    }
+  }
+  .animate-emblem-float {
+    animation: emblem-float 7s ease-in-out infinite;
+  }
+  /* Continuous 360° horizontal turn (rotateY only - never rotateX, so it always
+     turns left/right and never tilts up/down). */
+  @keyframes emblem-spin {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+  .animate-emblem-spin {
+    animation: emblem-spin 12s linear infinite;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+    will-change: transform;
+  }
+
+  /* ── Hero spiderweb interactive overlay (SpiderwebNetwork) ── */
+  .web-strand {
+    stroke: rgba(220, 30, 40, 0.2);
+    stroke-width: 1.3;
+  }
+  .web-ring {
+    stroke: rgba(220, 30, 40, 0.16);
+    stroke-width: 1.2;
+  }
+  .web-node {
+    fill: #ff6b70;
+    opacity: 0.4;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: web-node-pulse 3.2s ease-in-out infinite;
+  }
+  .web-static .web-node {
+    animation: none;
+  }
+  @keyframes web-node-pulse {
+    0%,
+    100% {
+      opacity: 0.35;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.85;
+      transform: scale(1.45);
+    }
+  }
+  /* Energy passing through a spoke: its nodes flash outward in sequence */
+  .spoke-active .web-node {
+    animation: web-node-flash 0.55s ease-out both;
+    animation-delay: calc(var(--ni) * 0.14s);
+  }
+  @keyframes web-node-flash {
+    0% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+    35% {
+      opacity: 1;
+      transform: scale(2.1);
+    }
+    100% {
+      opacity: 0.4;
+      transform: scale(1);
+    }
+  }
+  .web-connector {
+    stroke: rgba(233, 54, 63, 0.28);
+    stroke-width: 1.2;
+    transition:
+      stroke 0.35s ease,
+      filter 0.35s ease;
+  }
+  .web-connector.is-active {
+    stroke: rgba(255, 120, 128, 0.85);
+    filter: drop-shadow(0 0 6px rgba(229, 29, 37, 0.8));
+  }
+  .web-pulse-dot {
+    filter: drop-shadow(0 0 6px rgba(255, 90, 100, 0.95));
+    pointer-events: none;
+  }
+
+  /* ── CTA "SystemShift" network: before (dim red, dashed, disconnected) →
+     after (white-hot core + red halo, solid, energised) on hover. Kept to
+     the site's red/white/black palette - no green. ── */
+  .shift-line {
+    stroke: rgba(192, 39, 45, 0.32);
+    stroke-width: 1.3px;
+    stroke-dasharray: 4 5;
+    stroke-linecap: round;
+    transition:
+      stroke 0.6s ease,
+      stroke-dasharray 0.6s ease,
+      filter 0.6s ease;
+  }
+  .shift-line.is-active {
+    stroke: rgba(255, 255, 255, 0.85);
+    stroke-dasharray: none;
+    filter: drop-shadow(0 0 3px rgba(224, 64, 72, 0.75));
+  }
+  .shift-pulse-dot {
+    fill: #ffffff;
+    filter: drop-shadow(0 0 4px rgba(224, 64, 72, 0.95));
+    pointer-events: none;
+  }
+  .animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+  }
+  .animate-marquee {
+    animation: marquee 15s linear infinite;
+    will-change: transform;
+  }
+  .animate-grain {
+    animation: grain 8s steps(10) infinite;
+  }
+
+  /* ── Signal system: replaces the mascot everywhere it used to sit (Footer, Testimonials,
+     About, Contact/Careers). SignalTrace + SystemConstellation share these keyframes. ── */
+  @keyframes signal-trace-flow {
+    to {
+      stroke-dashoffset: -160;
+    }
+  }
+  @keyframes signal-node-pulse {
+    0%,
+    100% {
+      opacity: 0.55;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.25);
+    }
+  }
+  .signal-trace {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+  .signal-trace-line {
+    stroke-dasharray: 6 10;
+    animation: signal-trace-flow 3.2s linear infinite;
+  }
+  .signal-trace-node {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: signal-node-pulse 2.6s ease-in-out infinite;
+  }
+  .constellation-hub {
+    fill: var(--primary);
+    filter: drop-shadow(0 0 6px rgba(192, 39, 45, 0.8));
+  }
+  .constellation-spoke {
+    stroke: var(--border);
+    stroke-width: 0.6;
+    fill: none;
+    transition: stroke 0.4s ease;
+  }
+  .constellation-spoke.is-lit {
+    stroke: var(--primary);
+    stroke-dasharray: 3 2;
+    animation: signal-trace-flow 2.4s linear infinite;
+    filter: drop-shadow(0 0 3px rgba(192, 39, 45, 0.6));
+  }
+  .constellation-node {
+    fill: var(--muted-foreground);
+    transition: fill 0.4s ease;
+  }
+  .constellation-node.is-lit {
+    fill: var(--primary);
+    animation: signal-node-pulse 2.6s ease-in-out infinite;
+    filter: drop-shadow(0 0 5px rgba(192, 39, 45, 0.7));
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .signal-trace-line,
+    .signal-trace-node,
+    .constellation-spoke.is-lit,
+    .constellation-node.is-lit {
+      animation: none;
+    }
+  }
+
+  .tech-3d {
+    color: #c0272d;
+    animation: tech-glow-pulse 6.5s ease-in-out infinite;
+  }
+  .tech-3d::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      100deg,
+      transparent 0%,
+      transparent 38%,
+      rgba(255, 255, 255, 0.1) 44%,
+      rgba(255, 255, 255, 0.95) 49%,
+      rgba(255, 255, 255, 0.1) 54%,
+      transparent 60%,
+      transparent 100%
+    );
+    background-size: 320% 100%;
+    background-position: 140% 0;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    pointer-events: none;
+    animation: tech-circuit-sweep 4s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+  }
+  /* Same glow-pulse + sweep-highlight treatment as .tech-3d, but without forcing
+     a solid text color - lets it layer over an existing gradient-clip-text span. */
+  .accent-shimmer {
+    animation: tech-glow-pulse 6.5s ease-in-out infinite;
+  }
+  .accent-shimmer::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      100deg,
+      transparent 0%,
+      transparent 38%,
+      rgba(255, 255, 255, 0.1) 44%,
+      rgba(255, 255, 255, 0.95) 49%,
+      rgba(255, 255, 255, 0.1) 54%,
+      transparent 60%,
+      transparent 100%
+    );
+    background-size: 320% 100%;
+    background-position: 140% 0;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    pointer-events: none;
+    animation: tech-circuit-sweep 4.6s cubic-bezier(0.45, 0, 0.2, 1) infinite;
+    animation-delay: 1.4s;
+  }
+  @keyframes tech-circuit-sweep {
+    0% {
+      background-position: 140% 0;
+    }
+    55% {
+      background-position: -40% 0;
+    }
+    100% {
+      background-position: -40% 0;
+    }
+  }
+  @keyframes tech-glow-pulse {
+    0%,
+    65%,
+    100% {
+      filter: drop-shadow(0 0 0px rgba(192, 39, 45, 0));
+    }
+    82% {
+      filter: drop-shadow(0 0 5px rgba(192, 39, 45, 0.5));
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tech-3d,
+    .tech-3d::before,
+    .tech-3d::after {
+      animation: none;
+    }
+  }
+}
+
+/* ── Light mode component-specific fixes ──────────────────────────────────── */
+
+/* Logo: white PNG → invert to dark */
+.light .logo-img {
+  filter: invert(1) brightness(0.15);
+}
+
+/* Navbar link hover / active */
+.light nav a:hover,
+.light nav a.active {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Hero floating thought-clouds - premium glass, organic shape via inline radius */
+.thought-cloud {
+  transition: box-shadow 0.3s ease;
+}
+
+/* Signal / marquee strip */
+.signal-strip {
+  background: rgba(12, 13, 16, 0.7);
+  border-color: rgba(255, 255, 255, 0.05);
+}
+.light .signal-strip {
+  background: rgba(232, 226, 220, 0.8) !important;
+  border-top-color: rgba(0, 0, 0, 0.07) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.07) !important;
+}
+.light .signal-strip span {
+  color: rgba(80, 68, 62, 0.65) !important;
+}
+.light .signal-strip .h-2 {
+  background-color: var(--primary) !important;
+}
+
+/* Globe orb - the circular globe itself stays dark in both themes,
+   the section around it follows the normal page theme. The dark
+   circle is a separate, slightly inset element behind the canvas so
+   it can be sized independently of the globe's own render size. */
+.globe-orb {
+  background: transparent;
+}
+.globe-orb::before {
+  content: "";
+  position: absolute;
+  inset: 4.5%;
+  border-radius: 50%;
+  background: #0c0d10;
+  box-shadow: var(--shadow-lg);
+}
+
+/* Footer borders */
+.light footer {
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
+.light .footer-divider {
+  border-top-color: rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Trustpilot star boxes */
+.light .trust-star-box {
+  background: var(--primary) !important;
+  opacity: 0.85;
+}
+
+/* Operating system cards / OperatingSystem section dark bg */
+.light .operating-dark {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.07);
+}
+
+/* ── Light mode utility overrides ─────────────────────────────────────────── */
+.light body {
+  background-color: var(--color-background);
+  background-image:
+    radial-gradient(ellipse 70% 60% at 70% 12%, rgba(192, 39, 45, 0.22), transparent 60%),
+    radial-gradient(ellipse 50% 50% at 20% 30%, rgba(160, 28, 32, 0.15), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 80%, rgba(138, 24, 28, 0.14), transparent 60%),
+    linear-gradient(180deg, #fff5f5 0%, #fef0f0 50%, #fce8e8 100%);
+  color-scheme: light;
+}
+
+.light .glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(248, 245, 242, 0.76));
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
+  backdrop-filter: blur(12px) saturate(130%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+.light .glass:hover {
+  box-shadow: var(--shadow-md);
+}
+.light .glass-strong {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(250, 247, 244, 0.62));
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  backdrop-filter: blur(18px) saturate(150%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-lg);
+}
+.light header {
+  --muted-foreground: #3a3030;
+  --foreground: #1a1010;
+  --color-muted-foreground: var(--muted-foreground);
+  --color-foreground: var(--foreground);
+}
+
+/* Navbar link text overrides in light theme - more black and all red on hover/active */
+.light header nav a {
+  color: #16100f !important;
+  opacity: 0.75;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+.light header nav a:hover,
+.light header nav a.active {
+  color: var(--primary) !important;
+  opacity: 1;
+}
+.light header nav button span {
+  color: #16100f !important;
+  opacity: 0.55;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+.light header nav button:hover span {
+  color: var(--primary) !important;
+  opacity: 0.85;
+}
+.light .premium-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(250, 247, 244, 0.95));
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow:
+    var(--shadow-sm),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  backdrop-filter: blur(8px) saturate(120%);
+}
+.light .premium-card:hover {
+  box-shadow:
+    var(--shadow-md),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+}
+.light .text-gradient {
+  background: linear-gradient(135deg, #16100f 0%, #3d2020 52%, #8a181c 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.light .text-gradient-brand {
+  background: linear-gradient(135deg, #8a181c 0%, #c04040 48%, #e07070 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.light .grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(circle at center, black, transparent 72%);
+  mask-image: radial-gradient(circle at center, black, transparent 72%);
+}
+.light .noise::after {
+  opacity: 0.018;
+  mix-blend-mode: multiply;
+}
+.light .site-vignette::before {
+  background:
+    radial-gradient(
+      circle at 50% 8%,
+      transparent 0 36%,
+      rgba(248, 245, 242, 0.36) 72%,
+      rgba(248, 245, 242, 0.82) 100%
+    ),
+    linear-gradient(180deg, rgba(248, 245, 242, 0), rgba(248, 245, 242, 0.34));
+}
+.light .dust-field {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(0, 0, 0, 0.08) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 74% 22%, rgba(138, 24, 28, 0.14) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 44% 72%, rgba(0, 0, 0, 0.06) 0 1px, transparent 1.5px);
+  background-size:
+    260px 260px,
+    340px 340px,
+    420px 420px;
+  opacity: 0.3;
+}
+.light .ambient-red {
+  background:
+    radial-gradient(circle at 65% 20%, rgba(138, 24, 28, 0.14), transparent 36%),
+    radial-gradient(circle at 20% 80%, rgba(138, 24, 28, 0.1), transparent 42%);
+}
+
+.light .shift-line.is-active {
+  stroke: rgba(192, 39, 45, 0.7) !important;
+  filter: drop-shadow(0 0 2px rgba(192, 39, 45, 0.35)) !important;
+}
+.light .shift-pulse-dot {
+  fill: #c0272d !important;
+  filter: drop-shadow(0 0 3px rgba(192, 39, 45, 0.65)) !important;
+}
+
+.light input,
+.light textarea,
+.light select {
+  border-color: rgba(0, 0, 0, 0.35);
+}
+.light input:focus,
+.light textarea:focus {
+  border-color: var(--color-primary);
+}
+
+/* ── iOS Safari: background-attachment:fixed causes scroll jank on mobile ── */
+@supports (-webkit-touch-callout: none) {
+  body {
+    background-attachment: scroll;
+  }
+}
+
+/* ── Touch target minimum size for accessibility (WCAG 2.5.5) ─────────────── */
+@media (pointer: coarse) {
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ── Safe area insets for notched devices (iPhone X+, Android cutouts) ─────── */
+body {
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* ── Prevent text size adjustment on orientation change (iOS) ──────────────── */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ── RotatingText component ─────────────────────────────────────────────── */
+.text-rotate {
+  display: inline-flex;
+  flex-wrap: wrap;
+  white-space: pre-wrap;
+  position: relative;
+}
+.text-rotate-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.text-rotate-word {
+  display: inline-flex;
+}
+.text-rotate-lines {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.text-rotate-element {
+  display: inline-block;
+}
+.text-rotate-space {
+  white-space: pre;
+}

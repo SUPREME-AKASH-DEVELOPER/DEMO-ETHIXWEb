@@ -1,0 +1,135 @@
+[90m[env-runner][39m [33mVERCEL_OIDC_TOKEN[39m is not set. Run [36mvercel env pull[39m to pull the latest environment variables.
+[2m6:26:02 pm[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\src\components\GlobalNetwork.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (729:4)
+
+[0m [90m 727 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 728 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m
+[31m[1m>[22m[31m[90m 729 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"globe-transition"[31m [33m/[31m[33m>[31m
+ [90m     |[31m     [31m[1m^[22m[31m
+ [90m 730 |[31m   )[33m;[31m
+ [90m 731 |[31m }
+ [90m 732 |[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/akash/Downloads/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/components/GlobalNetwork.tsx[39m:729:4
+[33m  727 |        </div>
+  728 |      </section>
+  729 |      <div className="globe-transition" />
+      |      ^
+  730 |    );
+  731 |  }[39m
+      at constructor (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4754:18)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:18)
+      at C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10801:23)
+      at C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseBlock (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13314:10)
+      at TypeScriptParserMixin.parseFunctionBody (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12117:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12103:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9189:18)
+      at C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13462:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12420:14)
+      at TypeScriptParserMixin.parseFunction (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13461:10)
+[2m6:26:20 pm[22m [31m[1m[vite][22m[39m [31mInternal server error: C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\src\components\GlobalNetwork.tsx: Unterminated JSX contents. (730:40)
+
+[0m [90m 728 |[31m       [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m
+ [90m 729 |[31m     [33m<[31m[33m/[31m[33msection[31m[33m>[31m
+[31m[1m>[22m[31m[90m 730 |[31m     [33m<[31m[33mdiv[31m className[33m=[31m[32m"globe-transition"[31m [33m/[31m[33m>[31m
+ [90m     |[31m                                         [31m[1m^[22m[31m
+ [90m 731 |[31m   )[33m;[31m
+ [90m 732 |[31m }
+ [90m 733 |[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mC:/Users/akash/Downloads/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/components/GlobalNetwork.tsx[39m:730:40
+[33m  728 |        </div>
+  729 |      </section>
+  730 |      <div className="globe-transition" />
+      |                                          ^
+  731 |    );
+  732 |  }[39m
+      at constructor (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.jsxReadToken (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4460:20)
+      at TypeScriptParserMixin.getTokenFromCode (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4786:12)
+      at TypeScriptParserMixin.getTokenFromCode (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10004:11)
+      at TypeScriptParserMixin.nextToken (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:5799:10)
+      at TypeScriptParserMixin.next (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:5709:10)
+      at TypeScriptParserMixin.eat (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:5713:12)
+      at TypeScriptParserMixin.expect (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6915:15)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4683:10)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10060:18)
+      at TypeScriptParserMixin.jsxParseOpeningElementAt (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4674:17)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4698:33)
+      at TypeScriptParserMixin.jsxParseElementAt (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElement (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:18)
+      at C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10801:23)
+      at C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (C:\Users\akash\Downloads\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9525:18)
