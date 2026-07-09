@@ -1,0 +1,762 @@
+[90m[env-runner][39m [33mVERCEL_OIDC_TOKEN[39m is not set. Run [36mvercel env pull[39m to pull the latest environment variables.
+motion() is deprecated. Use motion.create() instead.
+Error: Error transforming route file A:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx: SyntaxError: Expected corresponding JSX closing tag for <div>. (466:4)
+    at file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/@tanstack/router-generator/dist/esm/generator.js:143:13
+Error: Error transforming route file A:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx: SyntaxError: Expected corresponding JSX closing tag for <div>. (466:4)
+    at file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/@tanstack/router-generator/dist/esm/generator.js:143:13
+[2m8:19:46 am[22m [31m[1m[vite][22m[39m [31mInternal server error: Expected corresponding JSX closing tag for <div>. (466:4)[39m
+  Plugin: [35mtanstack-router:code-splitter:compile-reference-file[39m
+  File: [36mA:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx[39m:466:4
+[33m  464 |          </div>
+  465 |        </motion.div>
+  466 |      </motion.div>
+      |      ^
+  467 |    );
+  468 |  }[39m
+      at constructor (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4739:16)
+      at TypeScriptParserMixin.jsxParseElement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10801:23)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseBlock (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13314:10)
+      at TypeScriptParserMixin.parseFunctionBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12117:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12103:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9189:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13462:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12420:14)
+      at TypeScriptParserMixin.parseFunction (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13461:10)
+[2m8:19:46 am[22m [31m[1m[vite][22m[39m [31mInternal server error: Expected corresponding JSX closing tag for <div>. (466:4)[39m
+  Plugin: [35mtanstack-router:code-splitter:compile-virtual-file[39m
+  File: [36mA:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx?tsr-split=component[39m:466:4
+[33m  464 |          </div>
+  465 |        </motion.div>
+  466 |      </motion.div>
+      |      ^
+  467 |    );
+  468 |  }[39m
+      at constructor (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4739:16)
+      at TypeScriptParserMixin.jsxParseElement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10801:23)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseBlock (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13314:10)
+      at TypeScriptParserMixin.parseFunctionBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12117:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12103:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9189:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13462:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12420:14)
+      at TypeScriptParserMixin.parseFunction (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13461:10)
+Error: Error transforming route file A:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx: SyntaxError: Expected corresponding JSX closing tag for <div>. (466:4)
+    at file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/@tanstack/router-generator/dist/esm/generator.js:143:13
+    at async generate (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/@tanstack/router-plugin/dist/esm/core/router-generator-plugin.js:39:4)
+    at async PluginContext.watchChange (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/@tanstack/router-plugin/dist/esm/core/router-generator-plugin.js:49:4)
+    at async Promise.all (index 2)
+    at async EnvironmentPluginContainer.hookParallel (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/chunks/config.js:28741:3)
+    at async EnvironmentPluginContainer.watchChange (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/chunks/config.js:28901:3)
+    at async Promise.all (index 0)
+    at async onFileAddUnlink (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/chunks/config.js:25640:3)
+Error: Error transforming route file A:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx: SyntaxError: Expected corresponding JSX closing tag for <div>. (465:4)
+    at file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/@tanstack/router-generator/dist/esm/generator.js:143:13
+    at async generate (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/@tanstack/router-plugin/dist/esm/core/router-generator-plugin.js:39:4)
+    at async PluginContext.watchChange (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/@tanstack/router-plugin/dist/esm/core/router-generator-plugin.js:49:4)
+    at async Promise.all (index 2)
+    at async EnvironmentPluginContainer.hookParallel (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/chunks/config.js:28741:3)
+    at async EnvironmentPluginContainer.watchChange (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/chunks/config.js:28901:3)
+    at async Promise.all (index 0)
+    at async FSWatcher.<anonymous> (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/chunks/config.js:25658:3)
+[2m8:19:48 am[22m [31m[1m[vite][22m[39m [31mInternal server error: Expected corresponding JSX closing tag for <div>. (465:4)[39m
+  Plugin: [35mtanstack-router:code-splitter:compile-reference-file[39m
+  File: [36mA:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx[39m:465:4
+[33m  463 |          </div>
+  464 |        </motion.div>
+  465 |      </motion.div>
+      |      ^
+  466 |    );
+  467 |  }[39m
+      at constructor (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4739:16)
+      at TypeScriptParserMixin.jsxParseElement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10801:23)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseBlock (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13314:10)
+      at TypeScriptParserMixin.parseFunctionBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12117:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12103:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9189:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13462:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12420:14)
+      at TypeScriptParserMixin.parseFunction (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13461:10)
+[2m8:19:48 am[22m [31m[1m[vite][22m[39m [31mInternal server error: Expected corresponding JSX closing tag for <div>. (465:4)[39m
+  Plugin: [35mtanstack-router:code-splitter:compile-virtual-file[39m
+  File: [36mA:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx?tsr-split=component[39m:465:4
+[33m  463 |          </div>
+  464 |        </motion.div>
+  465 |      </motion.div>
+      |      ^
+  466 |    );
+  467 |  }[39m
+      at constructor (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4739:16)
+      at TypeScriptParserMixin.jsxParseElement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10801:23)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseBlock (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13314:10)
+      at TypeScriptParserMixin.parseFunctionBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12117:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12103:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9189:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13462:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12420:14)
+      at TypeScriptParserMixin.parseFunction (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13461:10)
+Error: Error transforming route file A:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx: SyntaxError: Expected corresponding JSX closing tag for <div>. (391:6)
+    at file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/@tanstack/router-generator/dist/esm/generator.js:143:13
+    at async generate (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/@tanstack/router-plugin/dist/esm/core/router-generator-plugin.js:39:4)
+    at async PluginContext.watchChange (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/@tanstack/router-plugin/dist/esm/core/router-generator-plugin.js:49:4)
+    at async Promise.all (index 2)
+    at async EnvironmentPluginContainer.hookParallel (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/chunks/config.js:28741:3)
+    at async EnvironmentPluginContainer.watchChange (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/chunks/config.js:28901:3)
+    at async Promise.all (index 0)
+    at async FSWatcher.<anonymous> (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/chunks/config.js:25658:3)
+[2m8:40:58 am[22m [31m[1m[vite][22m[39m [31mInternal server error: Expected corresponding JSX closing tag for <div>. (391:6)[39m
+  Plugin: [35mtanstack-router:code-splitter:compile-reference-file[39m
+  File: [36mA:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx[39m:391:6
+[33m  389 |            />
+  390 |          ))}
+  391 |        </motion.div>
+      |        ^
+  392 |      </motion.div>
+  393 |    );[39m
+      at constructor (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4739:16)
+      at TypeScriptParserMixin.jsxParseElementAt (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10801:23)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseBlock (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13314:10)
+      at TypeScriptParserMixin.parseFunctionBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12117:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12103:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9189:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13462:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12420:14)
+[2m8:40:58 am[22m [31m[1m[vite][22m[39m [31mInternal server error: Expected corresponding JSX closing tag for <div>. (391:6)[39m
+  Plugin: [35mtanstack-router:code-splitter:compile-virtual-file[39m
+  File: [36mA:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx?tsr-split=component[39m:391:6
+[33m  389 |            />
+  390 |          ))}
+  391 |        </motion.div>
+      |        ^
+  392 |      </motion.div>
+  393 |    );[39m
+      at constructor (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4739:16)
+      at TypeScriptParserMixin.jsxParseElementAt (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10801:23)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseBlock (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13314:10)
+      at TypeScriptParserMixin.parseFunctionBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12117:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12103:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9189:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13462:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12420:14)
+SyntaxError: Expected corresponding JSX closing tag for <div>. (391:6)
+    at constructor (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:365:19)
+    ... 48 lines matching cause stack trace ...
+    at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12420:14) {
+  cause: Error [SyntaxError]: Expected corresponding JSX closing tag for <div>. (391:6)
+      at constructor (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6616:19)
+      at TypeScriptParserMixin.jsxParseElementAt (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4739:16)
+      at TypeScriptParserMixin.jsxParseElementAt (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4710:32)
+      at TypeScriptParserMixin.jsxParseElement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4761:17)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4771:19)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:39
+      at TypeScriptParserMixin.tryParse (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:6924:20)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9792:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12443:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10817:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12510:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11692:28)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11348:23)
+      at TypeScriptParserMixin.parseExprAtom (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:4776:20)
+      at TypeScriptParserMixin.parseExprSubscripts (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11098:23)
+      at TypeScriptParserMixin.parseUpdate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11083:21)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:11063:23)
+      at TypeScriptParserMixin.parseMaybeUnary (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9854:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10916:61)
+      at TypeScriptParserMixin.parseExprOps (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10921:23)
+      at TypeScriptParserMixin.parseMaybeConditional (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10898:23)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10848:21)
+      at TypeScriptParserMixin.parseMaybeAssign (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9803:20)
+      at TypeScriptParserMixin.parseExpressionBase (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10801:23)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:39
+      at TypeScriptParserMixin.allowInAnd (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12438:16)
+      at TypeScriptParserMixin.parseExpression (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:10797:17)
+      at TypeScriptParserMixin.parseReturnStatement (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13159:28)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12815:21)
+      at TypeScriptParserMixin.parseStatementContent (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9525:18)
+      at TypeScriptParserMixin.parseStatementLike (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12784:17)
+      at TypeScriptParserMixin.parseStatementListItem (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12764:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13333:61)
+      at TypeScriptParserMixin.parseBlockBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseBlock (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13314:10)
+      at TypeScriptParserMixin.parseFunctionBody (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12117:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12103:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:9189:18)
+      at A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:13462:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (A:\ETHIXWEB\ETHIXWEB PROCESSING\ethixweb-reimagined-main\node_modules\@babel\parser\lib\index.js:12420:14) {
+    code: 'BABEL_PARSER_SYNTAX_ERROR',
+    reasonCode: 'MissingClosingTagElement',
+    loc: { line: 391, column: 6, index: 13920 },
+    pos: 13920,
+    syntaxPlugin: 'jsx',
+    plugin: 'tanstack-router:code-splitter:compile-reference-file',
+    id: 'A:/ETHIXWEB/ETHIXWEB PROCESSING/ethixweb-reimagined-main/src/routes/index.tsx',
+    pluginCode: 'import { lazy, Suspense, useEffect, useState } from "react";\n' +
+      'import { createFileRoute, Link } from "@tanstack/react-router";\n' +
+      'import {\n' +
+      '  motion,\n' +
+      '  useMotionValue,\n' +
+      '  useReducedMotion,\n' +
+      '  useSpring,\n' +
+      '  useTransform,\n' +
+      '} from "framer-motion";\n' +
+      'import {\n' +
+      '  ArrowUpRight,\n' +
+      '  Bot,\n' +
+      '  BrainCircuit,\n' +
+      '  Cable,\n' +
+      '  Code2,\n' +
+      '  Globe2,\n' +
+      '  Layers3,\n' +
+      '  LifeBuoy,\n' +
+      '  Megaphone,\n' +
+      '  PhoneCall,\n' +
+      '  Search,\n' +
+      '  ShieldCheck,\n' +
+      '  Workflow,\n' +
+      '} from "lucide-react";\n' +
+      '\n' +
+      'const LIVE_PATHS = new Set(["/", "/contact"]);\n' +
+      'import { SiteLayout } from "@/components/SiteLayout";\n' +
+      'import { Reveal } from "@/components/Reveal";\n' +
+      'import { RotatingText } from "@/components/RotatingText";\n' +
+      'import { Testimonials } from "@/components/Testimonials";\n' +
+      'import { useTheme } from "@/components/ThemeProvider";\n' +
+      'import { PipelineDiagram } from "@/components/PipelineDiagram";\n' +
+      'import { ChaosCalmToggle } from "@/components/ChaosCalmToggle";\n' +
+      'import { Container } from "@/components/Container";\n' +
+      'import { GlowBlob } from "@/components/GlowBlob";\n' +
+      'import { SpiderwebNetwork } from "@/components/SpiderwebNetwork";\n' +
+      '\n' +
+      'const GlobalNetwork = lazy(() =>\n' +
+      '  import("@/components/GlobalNetwork").then((m) => ({ default: m.GlobalNetwork })),\n' +
+      ');\n' +
+      '\n' +
+      'const MotionLink = motion(Link);\n' +
+      '\n' +
+      '/** CTA that gently follows the cursor within a small radius, then springs back. */\n' +
+      'function MagneticCTA({\n' +
+      '  to,\n' +
+      '  className,\n' +
+      '  children,\n' +
+      '}: {\n' +
+      '  to: string;\n' +
+      '  className: string;\n' +
+      '  children: React.ReactNode;\n' +
+      '}) {\n' +
+      '  const x = useMotionValue(0);\n' +
+      '  const y = useMotionValue(0);\n' +
+      '  const springX = useSpring(x, { stiffness: 200, damping: 15, mass: 0.4 });\n' +
+      '  const springY = useSpring(y, { stiffness: 200, damping: 15, mass: 0.4 });\n' +
+      '\n' +
+      '  return (\n' +
+      '    <MotionLink\n' +
+      '      to={to}\n' +
+      '      className={className}\n' +
+      '      style={{ x: springX, y: springY }}\n' +
+      '      onMouseMove={(e: React.MouseEvent<HTMLElement>) => {\n' +
+      '        const rect = e.currentTarget.getBoundingClientRect();\n' +
+      '        x.set((e.clientX - (rect.left + rect.width / 2)) * 0.3);\n' +
+      '        y.set((e.clientY - (rect.top + rect.height / 2)) * 0.3);\n' +
+      '      }}\n' +
+      '      onMouseLeave={() => {\n' +
+      '        x.set(0);\n' +
+      '        y.set(0);\n' +
+      '      }}\n' +
+      '    >\n' +
+      '      {children}\n' +
+      '    </MotionLink>\n' +
+      '  );\n' +
+      '}\n' +
+      '\n' +
+      'function useIsSleeping() {\n' +
+      '  const check = () => {\n' +
+      '    // Dev/preview override: ?sleep=1 forces after-hours, ?sleep=0 forces awake\n' +
+      '    if (typeof window !== "undefined") {\n' +
+      '      const p = new URLSearchParams(window.location.search).get("sleep");\n' +
+      '      if (p === "1") return true;\n' +
+      '      if (p === "0") return false;\n' +
+      '    }\n' +
+      '    const h = new Date().getHours();\n' +
+      '    return h >= 17 || h < 8;\n' +
+      '  };\n' +
+      '  // Initialize to a fixed value so the first client render matches the server-rendered\n' +
+      '  // markup exactly (avoids a hydration mismatch); the real value is applied post-mount.\n' +
+      '  const [sleeping, setSleeping] = useState(false);\n' +
+      '  useEffect(() => {\n' +
+      '    setSleeping(check());\n' +
+      '    const id = setInterval(() => setSleeping(check()), 60_000);\n' +
+      '    return () => clearInterval(id);\n' +
+      '  }, []);\n' +
+      '  return sleeping;\n' +
+      '}\n' +
+      '\n' +
+      'export const Route = createFileRoute("/")({\n' +
+      '  head: () => ({\n' +
+      '    meta: [\n' +
+      '      { title: "Ethixweb - We run the tech. You run the business." },\n' +
+      '      {\n' +
+      '        name: "description",\n' +
+      '        content:\n' +
+      '          "We manage your digital operation, from AI booking agents and CRM integrations to websites, SEO and ads.",\n' +
+      '      },\n' +
+      '      { property: "og:title", content: "Ethixweb - Premium Technology Partner" },\n' +
+      '      {\n' +
+      '        property: "og:description",\n' +
+      '        content:\n' +
+      '          "AI automation, websites, web applications, CRM integrations, SEO, ads, maintenance, and digital operations.",\n' +
+      '      },\n' +
+      '      { property: "og:type", content: "website" },\n' +
+      '      { property: "og:image", content: "https://ethixweb.com/ethixweb.png" },\n' +
+      '      { property: "og:url", content: "https://ethixweb.com/" },\n' +
+      '      { name: "twitter:card", content: "summary_large_image" },\n' +
+      '      { name: "twitter:title", content: "Ethixweb - We run the tech. You run the business." },\n' +
+      '      {\n' +
+      '        name: "twitter:description",\n' +
+      '        content:\n' +
+      '          "We manage your digital operation, from AI booking agents and CRM integrations to websites, SEO and ads.",\n' +
+      '      },\n' +
+      '      { name: "twitter:image", content: "https://ethixweb.com/ethixweb.png" },\n' +
+      '      { name: "robots", content: "index, follow" },\n' +
+      '    ],\n' +
+      '    links: [{ rel: "canonical", href: "https://ethixweb.com/" }],\n' +
+      '    scripts: [\n' +
+      '      {\n' +
+      '        type: "application/ld+json",\n' +
+      '        children: JSON.stringify({\n' +
+      '          "@context": "https://schema.org",\n' +
+      '          "@type": "ProfessionalService",\n' +
+      '          name: "Ethixweb",\n' +
+      '          url: "https://ethixweb.com",\n' +
+      '          logo: "https://ethixweb.com/ethixweb.png",\n' +
+      '          description: "AI automation, websites, CRM integrations, SEO, and digital operations.",\n' +
+      '          email: "info@ethixweb.com",\n' +
+      '          openingHours: "Mo-Fr 09:00-17:00",\n' +
+      '          areaServed: "US",\n' +
+      '          sameAs: [\n' +
+      '            "https://www.linkedin.com/company/ethixweb/",\n' +
+      '            "https://www.instagram.com/ethix.web/",\n' +
+      '          ],\n' +
+      '        }),\n' +
+      '      },\n' +
+      '    ],\n' +
+      '  }),\n' +
+      '  component: Home,\n' +
+      '});\n' +
+      '\n' +
+      'const services = [\n' +
+      '  {\n' +
+      '    icon: Bot,\n' +
+      '    title: "AI Receptionists",\n' +
+      '    desc: "Voice and chat agents that answer, qualify, route, and book leads while your team stays focused.",\n' +
+      '    to: "/ai-automation",\n' +
+      '  },\n' +
+      '  {\n' +
+      '    icon: BrainCircuit,\n' +
+      '    title: "AI Automation",\n' +
+      '    desc: "Workflow automation, internal copilots, data syncs, and operational systems built for real teams.",\n' +
+      '    to: "/ai-automation",\n' +
+      '  },\n' +
+      '  {\n' +
+      '    icon: Globe2,\n' +
+      '    title: "Websites",\n' +
+      '    desc: "Fast, premium websites with sharp positioning, conversion paths, analytics, and SEO foundations.",\n' +
+      '    to: "/web-development",\n' +
+      '  },\n' +
+      '  {\n' +
+      '    icon: Code2,\n' +
+      '    title: "Web Applications",\n' +
+      '    desc: "Custom portals, dashboards, booking flows, and software tools engineered for daily operations.",\n' +
+      '    to: "/web-development",\n' +
+      '  },\n' +
+      '  {\n' +
+      '    icon: Cable,\n' +
+      '    title: "CRM Integrations",\n' +
+      '    desc: "HubSpot, GoHighLevel, Zapier, forms, calls, calendars, and pipelines connected into one system.",\n' +
+      '    to: "/services",\n' +
+      '  },\n' +
+      '  {\n' +
+      '    icon: Search,\n' +
+      '    title: "SEO",\n' +
+      '    desc: "Technical SEO, local SEO, content systems, and measurement that compound into durable demand.",\n' +
+      '    to: "/services",\n' +
+      '  },\n' +
+      '  {\n' +
+      '    icon: LifeBuoy,\n' +
+      '    title: "Maintenance & Support",\n' +
+      '    desc: "Fast fixes, uptime care, site updates, reporting, and a responsive team when something needs attention.",\n' +
+      '    to: "/services",\n' +
+      '  },\n' +
+      '  {\n' +
+      '    icon: Workflow,\n' +
+      '    title: "Digital Operations",\n' +
+      '    desc: "A senior tech team for your digital stack, from strategy through launch, support, and optimization.",\n' +
+      '    to: "/services",\n' +
+      '  },\n' +
+      '];\n' +
+      '\n' +
+      'const metrics = [\n' +
+      '  { value: "24/7", label: "global coverage" },\n' +
+      '  { value: "<1h", label: "support response" },\n' +
+      '  { value: "US", label: "operations focus" },\n' +
+      '  { value: "AI", label: "automation ready" },\n' +
+      '];\n' +
+      '\n' +
+      'const stack = ["AI agents", "CRM", "Websites", "SEO", "Ads", "Analytics", "Automations", "Support"];\n' +
+      '\n' +
+      'function Home() {\n' +
+      '  return (\n' +
+      '    <SiteLayout>\n' +
+      '      <Hero />\n' +
+      '      <SignalStrip />\n' +
+      '      <Services />\n' +
+      '      <Suspense fallback={null}>\n' +
+      '        <GlobalNetwork />\n' +
+      '      </Suspense>\n' +
+      '      <Testimonials />\n' +
+      '      <OperatingSystem />\n' +
+      '      <Proof />\n' +
+      '      <Difference />\n' +
+      '      <CTA />\n' +
+      '    </SiteLayout>\n' +
+      '  );\n' +
+      '}\n' +
+      '\n' +
+      'function Hero() {\n' +
+      '  return (\n' +
+      '    <section className="relative -mt-24 overflow-hidden bg-gradient-hero pb-4 pt-20 sm:pb-28 sm:pt-36 lg:pt-40">\n' +
+      '      <div className="absolute inset-0 grid-bg opacity-50" />\n' +
+      '      <GlowBlob size="lg" color="primary" blur={100} className="left-1/2 top-0 -translate-x-1/2" />\n' +
+      '      <GlowBlob size="md" color="primary" blur={100} className="bottom-0 right-0" />\n' +
+      '\n' +
+      '      <Container className="relative grid items-center gap-14 pt-4 sm:pt-12 lg:grid-cols-[0.95fr_1.05fr]">\n' +
+      '        <div className="relative z-10">\n' +
+      '          <Reveal>\n' +
+      '            <div className="inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-xs font-semibold text-primary">\n' +
+      '              <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_18px_rgba(138,24,28,0.9)]" />\n' +
+      '              Premium digital operations team\n' +
+      '            </div>\n' +
+      '          </Reveal>\n' +
+      '          <Reveal delay={0.08}>\n' +
+      '            <h1 className="mt-7 max-w-5xl pb-2 text-[clamp(2.61rem,6.34vw,6.16rem)] font-extrabold leading-[0.9] text-gradient">\n' +
+      '              We run the{" "}\n' +
+      '              <span className="tech-3d relative inline-block" data-text="tech.">\n' +
+      '                tech.\n' +
+      '              </span>\n' +
+      '              <br />\n' +
+      '              You run the{" "}\n' +
+      '              <span\n' +
+      '                className="accent-shimmer relative inline-block bg-clip-text text-transparent"\n' +
+      '                data-text="business."\n' +
+      '                style={{\n' +
+      '                  backgroundImage: "linear-gradient(135deg, #D13A40 0%, #B32228 50%, #8A181C 100%)",\n' +
+      '                }}\n' +
+      '              >\n' +
+      '                business.\n' +
+      '              </span>\n' +
+      '            </h1>\n' +
+      '          </Reveal>\n' +
+      '          <Reveal delay={0.16}>\n' +
+      '            <p className="mt-7 max-w-2xl text-lg font-medium leading-8 text-foreground/75 sm:text-xl">\n' +
+      '              We manage your digital operation, from AI booking agents and CRM integrations to\n' +
+      '              websites, SEO and ads.\n' +
+      '            </p>\n' +
+      '          </Reveal>\n' +
+      '          <Reveal delay={0.24}>\n' +
+      '            <div className="mt-10 flex flex-wrap gap-4">\n' +
+      '              <MagneticCTA\n' +
+      '                to="/contact"\n' +
+      '                className="shine-cta magnetic group inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-bold text-primary-foreground shadow-glow"\n' +
+      '              >\n' +
+      '                Start a project\n' +
+      '                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />\n' +
+      '              </MagneticCTA>\n' +
+      '              <div\n' +
+      '                aria-disabled="true"\n' +
+      '                title="Coming soon"\n' +
+      '                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4.5 px-7 py-3.5 font-bold text-foreground/40 backdrop-blur-xl cursor-not-allowed select-none"\n' +
+      '              >\n' +
+      '                See our work\n' +
+      '                <ArrowUpRight className="h-4 w-4" />\n' +
+      '              </div>'... 11741 more characters,
+    frame: '389 |            />\n' +
+      '390 |          ))}\n' +
+      '391 |        </motion.div>\n' +
+      '    |        ^\n' +
+      '392 |      </motion.div>\n' +
+      '393 |    );',
+    runnerError: Error: RunnerError
+        at reviveInvokeError (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/module-runner.js:476:64)
+        at Object.invoke (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/module-runner.js:549:11)
+        at ModuleRunner.getModuleInformation (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/module-runner.js:1086:7)
+        at request (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/module-runner.js:1103:83)
+        at eval (eval at runInlinedModule (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/module-runner.js:913:9), <anonymous>:16:32)
+        at ESModulesEvaluator.runInlinedModule (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/module-runner.js:913:3)
+        at ModuleRunner.directRequest (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/module-runner.js:1146:59)
+        at ModuleRunner.cachedRequest (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/module-runner.js:1053:73)
+        at eval (eval at runInlinedModule (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/module-runner.js:913:9), <anonymous>:6:31)
+        at ESModulesEvaluator.runInlinedModule (file:///A:/ETHIXWEB/ETHIXWEB%20PROCESSING/ethixweb-reimagined-main/node_modules/vite/dist/node/module-runner.js:913:3)
+  },
+  status: 500,
+  statusText: undefined,
+  headers: undefined,
+  data: undefined,
+  body: undefined,
+  unhandled: true
+}
