@@ -378,6 +378,53 @@ html.dark {
     }
   }
 
+  /* ── Feature variant of .web-card for standalone "hero" cards (e.g. the
+     closing careers CTA) that can afford a bigger, two-corner treatment than
+     the compact grid cards .web-card is normally used on. Adds a second
+     corner accent via a real element (both of .web-card's pseudo-elements are
+     already spoken for) mirrored into the opposite corner by rotating the
+     same mask 180deg, and sizes both corners up. ── */
+  .web-card-feature::before,
+  .web-card-feature::after {
+    -webkit-mask-size: 220px 220px;
+    mask-size: 220px 220px;
+  }
+  .web-card-feature > .web-corner {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    -webkit-mask-image: var(--web-card-mask);
+    mask-image: var(--web-card-mask);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: top right;
+    mask-position: top right;
+    -webkit-mask-size: 220px 220px;
+    mask-size: 220px 220px;
+    transform: rotate(180deg);
+    background: rgba(233, 54, 63, 0.9);
+    opacity: 0.06;
+    filter: drop-shadow(0 0 2px rgba(220, 30, 40, 0.3));
+    transition:
+      opacity 0.6s cubic-bezier(var(--ease-premium)),
+      filter 0.6s cubic-bezier(var(--ease-premium));
+  }
+  .web-card-feature:hover > .web-corner,
+  .web-card-feature:focus-within > .web-corner {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 8px rgba(255, 90, 100, 0.6))
+      drop-shadow(0 0 18px rgba(220, 30, 40, 0.35));
+  }
+  @media (max-width: 480px) {
+    .web-card-feature::before,
+    .web-card-feature::after,
+    .web-card-feature > .web-corner {
+      -webkit-mask-size: 150px 150px;
+      mask-size: 150px 150px;
+    }
+  }
+
   /* ── Metric card flip - hover reveals a short plain-language explanation
      on the back face instead of the raw stat, e.g. "US First" → "Proudly
      based in the United States." ── */

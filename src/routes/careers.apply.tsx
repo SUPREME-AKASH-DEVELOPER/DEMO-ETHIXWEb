@@ -10,7 +10,20 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { useTheme } from "@/components/ThemeProvider";
 import { SystemConstellation } from "@/components/SystemConstellation";
 import { JOBS, getJob } from "@/lib/careers-data";
-import { Mail, MapPin, ArrowUpRight, Check, UploadCloud, FileText, X, Loader2 } from "lucide-react";
+import { getScreeningConfig } from "@/lib/screening-rubrics";
+import {
+  Mail,
+  MapPin,
+  ArrowUpRight,
+  Check,
+  UploadCloud,
+  FileText,
+  X,
+  Loader2,
+  Code2,
+  Search,
+  Users,
+} from "lucide-react";
 
 const ALLOWED_RESUME_TYPES = [
   "application/pdf",
@@ -18,6 +31,21 @@ const ALLOWED_RESUME_TYPES = [
   "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 ];
 const MAX_RESUME_BYTES = 10 * 1024 * 1024;
+
+const ROLE_ICONS: Record<string, typeof Code2> = {
+  "full-stack-developer": Code2,
+  "seo-specialist": Search,
+};
+
+const ROLE_OPTIONS = [
+  ...JOBS.map((j) => ({
+    value: j.id,
+    label: j.title,
+    desc: j.department,
+    icon: ROLE_ICONS[j.id] ?? Users,
+  })),
+  { value: "general", label: "General Application", desc: "Not sure yet", icon: Users },
+];
 
 const NOTICE_PERIODS = [
   { id: "immediate", label: "Immediate" },
@@ -364,16 +392,48 @@ function ApplyPage() {
                             transition={{ duration: 0.24, ease: "easeOut" }}
                             className="space-y-4"
                           >
-                            <SelectField
-                              label="Applying for"
-                              value={roleId}
-                              onChange={setRoleId}
-                              options={[
-                                { value: "", label: "Select a role…" },
-                                ...JOBS.map((j) => ({ value: j.id, label: j.title })),
-                                { value: "general", label: "General Application" },
-                              ]}
-                            />
+                            <div>
+                              <label className="text-xs uppercase tracking-widest text-muted-foreground">
+                                Applying for <span className="text-primary">*</span>
+                              </label>
+                              <div className="mt-2 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                                {ROLE_OPTIONS.map(({ value, label, desc, icon: Icon }, index) => {
+                                  const active = roleId === value;
+                                  return (
+                                    <motion.button
+                                      key={value}
+                                      type="button"
+                                      initial={{ opacity: 0, y: 10 }}
+                                      animate={{ opacity: 1, y: 0 }}
+                                      transition={{
+                                        duration: 0.24,
+                                        delay: index * 0.035,
+                                        ease: "easeOut",
+                                      }}
+                                      whileHover={{ scale: 1.03, y: -2 }}
+                                      whileTap={{ scale: 0.97 }}
+                                      onClick={() => setRoleId(value)}
+                                      className={`web-card group relative rounded-2xl p-4 text-left transition-all duration-200 ${
+                                        active
+                                          ? "premium-card ring-2 ring-primary/60"
+                                          : "premium-card"
+                                      }`}
+                                    >
+                                      <Icon
+                                        className={`relative mb-2.5 h-5 w-5 transition-colors ${active ? "text-primary" : "text-muted-foreground group-hover:text-primary"}`}
+                                        strokeWidth={1.6}
+                                      />
+                                      <p className="relative text-sm font-semibold leading-snug text-foreground">
+                                        {label}
+                                      </p>
+                                      <p className="relative mt-1 text-xs leading-snug text-muted-foreground">
+                                        {desc}
+                                      </p>
+                                    </motion.button>
+                                  );
+                                })}
+                              </div>
+                            </div>
                             <div className="grid sm:grid-cols-2 gap-4">
                               <TextField
                                 label="Full name"
@@ -653,6 +713,18 @@ function ApplyPage() {
                       nodes={stepLabels.map((label) => ({ label }))}
                       className="h-40 w-40 opacity-80"
                     />
+                    {getScreeningConfig(roleId) && (
+                      <motion.a
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.8, ease: "easeOut" }}
+                        href={`/careers/screening?role=${encodeURIComponent(roleId)}&name=${encodeURIComponent(fullName)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&resume=${encodeURIComponent(resumeUrl)}`}
+                        className="magnetic group relative z-10 mt-2 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 font-bold text-primary-foreground shadow-glow"
+                      >
+                        Take the screening test now
+                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
+                      </motion.a>
+                    )}
                     <Link
                       to="/careers"
                       className="relative z-10 mt-2 text-sm font-semibold text-primary hover:underline"

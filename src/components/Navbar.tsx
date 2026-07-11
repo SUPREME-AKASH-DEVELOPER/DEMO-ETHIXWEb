@@ -6,7 +6,7 @@ import { Logo } from "./Logo";
 import { TimezoneWidget } from "./TimezoneWidget";
 import { useTheme } from "./ThemeProvider";
 
-const LIVE_PATHS = new Set(["/", "/contact"]);
+const LIVE_PATHS = new Set(["/", "/contact", "/careers"]);
 
 export const links = [
   { to: "/", label: "Home" },

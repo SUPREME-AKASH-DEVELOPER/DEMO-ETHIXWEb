@@ -341,11 +341,14 @@ export function SpiderwebNetwork({
   my,
   reduceMotion,
   theme,
+  showBadges = true,
 }: {
   mx: MotionValue<number>;
   my: MotionValue<number>;
   reduceMotion: boolean;
   theme: string;
+  /** Hide the value-prop badges (e.g. "More booked jobs") for pages where that copy doesn't apply - the web and emblem stay. */
+  showBadges?: boolean;
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const spokeGroupRefs = useRef<(SVGGElement | null)[]>([]);
@@ -467,14 +470,15 @@ export function SpiderwebNetwork({
         ))}
 
         {/* Badge connection lines */}
-        {BADGE_GEO.map((g, i) => (
-          <path
-            key={`c${i}`}
-            d={g.line}
-            fill="none"
-            className={`web-connector ${hoveredBadge === i || nearBadge === i ? "is-active" : ""}`}
-          />
-        ))}
+        {showBadges &&
+          BADGE_GEO.map((g, i) => (
+            <path
+              key={`c${i}`}
+              d={g.line}
+              fill="none"
+              className={`web-connector ${hoveredBadge === i || nearBadge === i ? "is-active" : ""}`}
+            />
+          ))}
 
         {/* Pulsing nodes, grouped per spoke so an energy pulse can flash them in order */}
         {SPOKES.map((_, si) => (
@@ -530,47 +534,49 @@ export function SpiderwebNetwork({
         ))}
 
         {/* Energy pulses that run hub -> node -> badge when a badge is hovered */}
-        {BADGE_GEO.map((g, i) => (
-          <circle key={`bp${i}`} r={3.2} fill="#ffc2c6" opacity="0" className="web-pulse-dot">
-            <animateMotion
-              ref={(el: SVGAnimationElement | null) => {
-                connectorAnimRefs.current[i] = el;
-              }}
-              dur="0.7s"
-              begin="indefinite"
-              path={g.pulse}
-              keyPoints="0;1"
-              keyTimes="0;1"
-              calcMode="linear"
-            />
-            <animate
-              ref={(el: SVGAnimationElement | null) => {
-                connectorFadeRefs.current[i] = el;
-              }}
-              attributeName="opacity"
-              values="0;1;1;0"
-              keyTimes="0;0.15;0.8;1"
-              dur="0.7s"
-              begin="indefinite"
-            />
-          </circle>
-        ))}
+        {showBadges &&
+          BADGE_GEO.map((g, i) => (
+            <circle key={`bp${i}`} r={3.2} fill="#ffc2c6" opacity="0" className="web-pulse-dot">
+              <animateMotion
+                ref={(el: SVGAnimationElement | null) => {
+                  connectorAnimRefs.current[i] = el;
+                }}
+                dur="0.7s"
+                begin="indefinite"
+                path={g.pulse}
+                keyPoints="0;1"
+                keyTimes="0;1"
+                calcMode="linear"
+              />
+              <animate
+                ref={(el: SVGAnimationElement | null) => {
+                  connectorFadeRefs.current[i] = el;
+                }}
+                attributeName="opacity"
+                values="0;1;1;0"
+                keyTimes="0;0.15;0.8;1"
+                dur="0.7s"
+                begin="indefinite"
+              />
+            </circle>
+          ))}
       </svg>
 
       <GlassEmblem mx={mx} reduceMotion={reduceMotion} />
 
-      {BADGES.map((badge, i) => (
-        <HeroBadge
-          key={badge.label}
-          badge={badge}
-          x={isSmall && "xSm" in badge && badge.xSm ? badge.xSm : badge.x}
-          active={hoveredBadge === i}
-          highlighted={nearBadge === i}
-          reduceMotion={reduceMotion}
-          theme={theme}
-          onHover={onBadgeHover(i)}
-        />
-      ))}
+      {showBadges &&
+        BADGES.map((badge, i) => (
+          <HeroBadge
+            key={badge.label}
+            badge={badge}
+            x={isSmall && "xSm" in badge && badge.xSm ? badge.xSm : badge.x}
+            active={hoveredBadge === i}
+            highlighted={nearBadge === i}
+            reduceMotion={reduceMotion}
+            theme={theme}
+            onHover={onBadgeHover(i)}
+          />
+        ))}
     </div>
   );
 }
