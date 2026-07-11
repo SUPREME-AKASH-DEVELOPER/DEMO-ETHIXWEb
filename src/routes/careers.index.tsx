@@ -179,7 +179,7 @@ function Careers() {
           blur={100}
           className="left-1/2 top-0 -translate-x-1/2"
         />
-        <div className="pointer-events-none absolute inset-x-0 top-10 mx-auto w-full max-w-5xl scale-110 opacity-15">
+        <div className="pointer-events-none absolute inset-x-0 top-32 mx-auto w-full max-w-5xl scale-110 opacity-15">
           <HeroWebVisual showBadges={false} />
         </div>
 
