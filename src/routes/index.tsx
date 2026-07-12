@@ -16,7 +16,6 @@ import {
   Workflow,
 } from "lucide-react";
 
-const LIVE_PATHS = new Set(["/", "/contact"]);
 import { SiteLayout } from "@/components/SiteLayout";
 import { Reveal } from "@/components/Reveal";
 import { RotatingText } from "@/components/RotatingText";
@@ -26,6 +25,8 @@ import { Container } from "@/components/Container";
 import { GlowBlob } from "@/components/GlowBlob";
 import { HeroWebVisual } from "@/components/HeroWebVisual";
 import { SystemShift } from "@/components/SystemShift";
+import { WebSpotlight } from "@/components/WebSpotlight";
+import { trackWebSpotlight } from "@/lib/web-spotlight";
 
 const GlobalNetwork = lazy(() =>
   import("@/components/GlobalNetwork").then((m) => ({ default: m.GlobalNetwork })),
@@ -247,14 +248,13 @@ function Hero() {
                 Start a project
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
               </MagneticCTA>
-              <div
-                aria-disabled="true"
-                title="Coming soon"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4.5 px-7 py-3.5 font-bold text-foreground/40 backdrop-blur-xl cursor-not-allowed select-none"
+              <Link
+                to="/portfolio"
+                className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/4.5 px-7 py-3.5 font-bold text-foreground backdrop-blur-xl transition-colors hover:border-white/20 hover:bg-white/8"
               >
                 See our work
-                <ArrowUpRight className="h-4 w-4" />
-              </div>
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
+              </Link>
             </div>
           </Reveal>
         </div>
@@ -303,8 +303,6 @@ function Services() {
                 texts={["business.", "growth.", "revenue.", "pipeline."]}
                 mainClassName="align-bottom"
                 elementLevelClassName="text-primary"
-                staggerFrom="last"
-                staggerDuration={0.02}
                 rotationInterval={3500}
                 transition={{ type: "spring", damping: 28, stiffness: 380 }}
               />
@@ -315,8 +313,12 @@ function Services() {
           {services.map((service, index) => (
             <Reveal key={service.title} delay={index * 0.04}>
               <div className="relative h-full">
-                <div className="premium-card relative h-full overflow-hidden rounded-2xl p-6 cursor-default">
+                <div
+                  onMouseMove={trackWebSpotlight}
+                  className="group premium-card relative h-full overflow-hidden rounded-2xl p-6 cursor-default"
+                >
                   <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-primary/0 blur-3xl" />
+                  <WebSpotlight />
                   <service.icon className="h-7 w-7 text-primary/60" strokeWidth={1.7} />
                   <h3 className="mt-7 text-xl font-bold text-foreground">{service.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-foreground/75">{service.desc}</p>

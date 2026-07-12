@@ -290,6 +290,20 @@ html.dark {
       inset 0 1px 0 rgba(255, 255, 255, 0.08);
   }
 
+  /* ── Selected/active state for choice cards (role pickers, service/timeline
+     selectors, and any future "pick one of several" option grid). A solid
+     2px ring + brand tint + soft glow, all via box-shadow so nothing shifts
+     layout - scale is applied separately per-component (Framer Motion owns
+     `transform` on cards that already use whileHover/whileTap, so a CSS
+     transform here would just get clobbered by its inline style). ── */
+  .option-card-selected {
+    box-shadow:
+      0 0 0 2px var(--color-primary),
+      inset 0 0 0 999px rgba(192, 39, 45, 0.055),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 10px 28px -10px rgba(192, 39, 45, 0.4);
+  }
+
   /* ── Corner spiderweb accent for cards (echoes the Hero's SpiderwebNetwork) ──
      A quarter-web is masked into the card's top-right corner: near-invisible at
      rest, it fades in and "energises" on hover via a shimmer sweep confined to
@@ -422,6 +436,51 @@ html.dark {
     .web-card-feature > .web-corner {
       -webkit-mask-size: 150px 150px;
       mask-size: 150px 150px;
+    }
+  }
+
+  /* ── Cursor-reactive glow over the signature web pattern - a real element
+     masked with the same spiderweb fan used by .web-card/.web-card-feature,
+     whose radial-gradient position tracks the pointer via CSS custom
+     properties (--mx/--my) set by a plain onMouseMove handler on the card -
+     no React state, no rAF loop, so it's cheap enough for many cards at once.
+     `.web-spotlight-lg` sizes the mask up for bigger, feature-style cards. ── */
+  .web-spotlight {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    -webkit-mask-image: var(--web-card-mask);
+    mask-image: var(--web-card-mask);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: top right;
+    mask-position: top right;
+    -webkit-mask-size: 140px 140px;
+    mask-size: 140px 140px;
+    background: radial-gradient(
+      110px circle at var(--mx, 85%) var(--my, 10%),
+      rgba(233, 54, 63, 0.6),
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .web-spotlight-lg {
+    -webkit-mask-size: 260px 260px;
+    mask-size: 260px 260px;
+    background: radial-gradient(
+      180px circle at var(--mx, 85%) var(--my, 10%),
+      rgba(233, 54, 63, 0.6),
+      transparent 70%
+    );
+  }
+  .group:hover .web-spotlight {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .web-spotlight {
+      transition: none;
     }
   }
 
@@ -1308,6 +1367,7 @@ html {
   flex-wrap: wrap;
   white-space: pre-wrap;
   position: relative;
+  overflow: hidden;
 }
 .text-rotate-sr-only {
   position: absolute;

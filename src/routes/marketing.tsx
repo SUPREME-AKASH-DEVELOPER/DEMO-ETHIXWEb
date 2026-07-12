@@ -4,6 +4,8 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { Container } from "@/components/Container";
 import { CTASection } from "@/components/CTASection";
+import { WebSpotlight } from "@/components/WebSpotlight";
+import { trackWebSpotlight } from "@/lib/web-spotlight";
 import {
   Megaphone,
   BarChart3,
@@ -192,7 +194,11 @@ function Page() {
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {helpItems.map((s, i) => (
               <Reveal key={s.t} delay={i * 0.06}>
-                <div className="glass rounded-3xl p-7 h-full hover:bg-white/[0.06] transition">
+                <div
+                  onMouseMove={trackWebSpotlight}
+                  className="group relative h-full overflow-hidden rounded-3xl glass p-7 hover:bg-white/[0.06] transition"
+                >
+                  <WebSpotlight />
                   <s.i className="h-9 w-9 text-primary mb-5" strokeWidth={1.5} />
                   <h3 className="font-display text-lg font-semibold">{s.t}</h3>
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
@@ -226,12 +232,14 @@ function Page() {
             {plans.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.08}>
                 <div
-                  className={`relative h-full rounded-3xl p-8 ${
+                  onMouseMove={trackWebSpotlight}
+                  className={`group relative h-full overflow-hidden rounded-3xl p-8 ${
                     p.featured
                       ? "bg-gradient-brand shadow-glow ring-1 ring-primary/40"
                       : "glass hover:bg-white/[0.06] transition"
                   }`}
                 >
+                  <WebSpotlight />
                   {p.featured && (
                     <span className="absolute -top-3 right-6 rounded-full bg-background px-3 py-1 text-[10px] uppercase tracking-widest">
                       Most Popular

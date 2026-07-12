@@ -1,15 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Briefcase, MapPin, Clock, IndianRupee, ArrowUpRight } from "lucide-react";
+import { WebSpotlight } from "@/components/WebSpotlight";
+import { trackWebSpotlight } from "@/lib/web-spotlight";
 import type { Job } from "@/lib/careers-data";
 
 export function JobCard({ job }: { job: Job }) {
   return (
     <motion.div
       whileHover={{ y: -4 }}
+      onMouseMove={trackWebSpotlight}
       transition={{ duration: 0.25, ease: "easeOut" }}
       className="group glass web-card relative flex h-full flex-col rounded-3xl p-7 hover:bg-white/[0.06] transition-colors"
     >
+      <WebSpotlight />
       <p className="text-xs font-bold uppercase tracking-widest text-primary">{job.department}</p>
       <h3 className="mt-2 font-display text-2xl font-semibold leading-snug">{job.title}</h3>
 

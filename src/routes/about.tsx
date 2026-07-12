@@ -8,6 +8,8 @@ import { SystemConstellation } from "@/components/SystemConstellation";
 import { Container } from "@/components/Container";
 import { GlowBlob } from "@/components/GlowBlob";
 import { CardGrid } from "@/components/CardGrid";
+import { WebSpotlight } from "@/components/WebSpotlight";
+import { trackWebSpotlight } from "@/lib/web-spotlight";
 import { Target, Heart, Zap, ArrowUpRight, Compass, Eye, CheckCircle2 } from "lucide-react";
 
 export const Route = createFileRoute("/about")({
@@ -208,7 +210,11 @@ function About() {
           </Reveal>
           <div className="grid gap-6 md:grid-cols-2">
             <Reveal delay={0.05}>
-              <div className="glass rounded-3xl p-8 h-full lg:p-10">
+              <div
+                onMouseMove={trackWebSpotlight}
+                className="group relative h-full overflow-hidden rounded-3xl glass p-8 lg:p-10"
+              >
+                <WebSpotlight size="lg" />
                 <Compass className="h-10 w-10 text-primary mb-6" strokeWidth={1.5} />
                 <p className="mb-3 text-sm font-bold uppercase tracking-widest text-primary">
                   Our mission
@@ -224,7 +230,11 @@ function About() {
               </div>
             </Reveal>
             <Reveal delay={0.1}>
-              <div className="glass rounded-3xl p-8 h-full lg:p-10">
+              <div
+                onMouseMove={trackWebSpotlight}
+                className="group relative h-full overflow-hidden rounded-3xl glass p-8 lg:p-10"
+              >
+                <WebSpotlight size="lg" />
                 <Eye className="h-10 w-10 text-primary mb-6" strokeWidth={1.5} />
                 <p className="mb-3 text-sm font-bold uppercase tracking-widest text-primary">
                   Our vision
@@ -264,7 +274,11 @@ function About() {
             <div className="grid gap-5 sm:grid-cols-2">
               {PROCESS_STEPS.map((s, i) => (
                 <Reveal key={s.t} delay={i * 0.08}>
-                  <div className="glass rounded-3xl p-8 h-full hover:bg-white/[0.06] transition">
+                  <div
+                    onMouseMove={trackWebSpotlight}
+                    className="group relative h-full overflow-hidden rounded-3xl glass p-8 hover:bg-white/[0.06] transition"
+                  >
+                    <WebSpotlight />
                     <div className="font-display text-5xl font-bold text-gradient-brand">{s.n}</div>
                     <h3 className="mt-4 font-display text-xl font-semibold">{s.t}</h3>
                     <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
@@ -327,7 +341,11 @@ function About() {
           <div className="mb-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {STATS.map((s, i) => (
               <Reveal key={s.label} delay={i * 0.06}>
-                <div className="glass rounded-3xl p-6 h-full text-center">
+                <div
+                  onMouseMove={trackWebSpotlight}
+                  className="group relative h-full overflow-hidden rounded-3xl glass p-6 text-center"
+                >
+                  <WebSpotlight />
                   <p className="font-display text-5xl font-bold text-gradient-brand">{s.value}</p>
                   <p className="mt-2 text-xs uppercase tracking-wide text-muted-foreground">
                     {s.label}
@@ -357,6 +375,24 @@ function About() {
                   <SignalTrace className="h-full w-full opacity-60" />
                 </div>
               </div>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
+      <section className="py-16">
+        <Container size="narrow">
+          <Reveal>
+            <div className="glass rounded-3xl p-8 text-center sm:p-10">
+              <p className="mb-3 text-sm font-bold uppercase tracking-widest text-primary">
+                US Business Entity
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                Ethixweb operates in the United States through{" "}
+                <span className="font-semibold text-foreground">Ethixweb USA LLC</span>, a
+                Wyoming-registered company. When you work with us, you're contracting with a US
+                business entity, providing additional confidence, transparency, and accountability.
+              </p>
             </div>
           </Reveal>
         </Container>

@@ -342,6 +342,7 @@ export function SpiderwebNetwork({
   reduceMotion,
   theme,
   showBadges = true,
+  webOpacity = 1,
 }: {
   mx: MotionValue<number>;
   my: MotionValue<number>;
@@ -349,6 +350,10 @@ export function SpiderwebNetwork({
   theme: string;
   /** Hide the value-prop badges (e.g. "More booked jobs") for pages where that copy doesn't apply - the web and emblem stay. */
   showBadges?: boolean;
+  /** Fades just the web artwork/strands/nodes, independent of the glass emblem
+   * (which stays fully opaque) - for placements where the web should read as
+   * a quiet background texture instead of the homepage's full-strength hero. */
+  webOpacity?: number;
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const spokeGroupRefs = useRef<(SVGGElement | null)[]>([]);
@@ -440,6 +445,7 @@ export function SpiderwebNetwork({
       onPointerMove={handlePointerMove}
       onPointerLeave={() => setNearBadge(-1)}
     >
+      <div style={{ opacity: webOpacity }}>
       <img
         src={spiderweb}
         alt=""
@@ -561,6 +567,7 @@ export function SpiderwebNetwork({
             </circle>
           ))}
       </svg>
+      </div>
 
       <GlassEmblem mx={mx} reduceMotion={reduceMotion} />
 

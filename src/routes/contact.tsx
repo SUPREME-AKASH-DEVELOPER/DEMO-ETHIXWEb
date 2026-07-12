@@ -8,6 +8,8 @@ import { Container } from "@/components/Container";
 import { GlowBlob } from "@/components/GlowBlob";
 import { useTheme } from "@/components/ThemeProvider";
 import { SystemConstellation } from "@/components/SystemConstellation";
+import { WebSpotlight } from "@/components/WebSpotlight";
+import { trackWebSpotlight } from "@/lib/web-spotlight";
 import {
   Mail,
   MapPin,
@@ -19,6 +21,7 @@ import {
   Code2,
   MessageSquare,
   Check,
+  Building2,
 } from "lucide-react";
 
 // ── Data ─────────────────────────────────────────────────────────────────────
@@ -404,6 +407,7 @@ function ContactBody() {
                   <div className="relative z-20 space-y-3 pt-2">
                     {[
                       { i: Mail, v: "info@ethixweb.com" },
+                      { i: Building2, v: "Ethixweb USA LLC · Wyoming, US" },
                       { i: MapPin, v: "Mon–Fri · 9 AM – 5 PM" },
                     ].map(({ i: I, v }) => (
                       <div
@@ -468,22 +472,32 @@ function ContactBody() {
                                 return (
                                   <motion.button
                                     key={id}
+                                    type="button"
+                                    aria-pressed={active}
                                     initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
+                                    animate={{ opacity: 1, y: 0, scale: active ? 1.015 : 1 }}
                                     transition={{
-                                      duration: 0.24,
-                                      delay: index * 0.035,
-                                      ease: "easeOut",
+                                      opacity: { duration: 0.24, delay: index * 0.035, ease: "easeOut" },
+                                      y: { duration: 0.24, delay: index * 0.035, ease: "easeOut" },
+                                      scale: { duration: 0.22, ease: "easeOut" },
                                     }}
                                     whileHover={{ scale: 1.03, y: -2 }}
                                     whileTap={{ scale: 0.97 }}
                                     onClick={() => setSel((s) => ({ ...s, service: id }))}
-                                    className={`web-card group relative rounded-2xl p-4 text-left transition-all duration-200 ${
-                                      active
-                                        ? "premium-card ring-2 ring-primary/60"
-                                        : "premium-card"
+                                    onMouseMove={trackWebSpotlight}
+                                    className={`web-card group relative rounded-2xl p-4 text-left transition-all duration-200 premium-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+                                      active ? "option-card-selected" : ""
                                     }`}
                                   >
+                                    <WebSpotlight />
+                                    {active && (
+                                      <span
+                                        style={{ position: "absolute" }}
+                                        className="right-3 top-3 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md"
+                                      >
+                                        <Check className="h-3 w-3" strokeWidth={3} />
+                                      </span>
+                                    )}
                                     <Icon
                                       className={`relative h-5 w-5 mb-2.5 transition-colors ${active ? "text-primary" : "text-muted-foreground group-hover:text-primary"}`}
                                       strokeWidth={1.6}
@@ -502,7 +516,7 @@ function ContactBody() {
                             {/* Direct-contact fallback */}
                             <div
                               className={`glass mt-4 rounded-xl p-4 transition-all duration-200 ${
-                                isDirect ? "ring-2 ring-primary/40" : ""
+                                isDirect ? "option-card-selected" : ""
                               }`}
                             >
                               <p className="mb-3 text-sm leading-snug text-muted-foreground">
@@ -575,20 +589,32 @@ function ContactBody() {
                                 return (
                                   <motion.button
                                     key={id}
+                                    type="button"
+                                    aria-pressed={active}
                                     initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
+                                    animate={{ opacity: 1, y: 0, scale: active ? 1.015 : 1 }}
                                     transition={{
-                                      duration: 0.24,
-                                      delay: index * 0.04,
-                                      ease: "easeOut",
+                                      opacity: { duration: 0.24, delay: index * 0.04, ease: "easeOut" },
+                                      y: { duration: 0.24, delay: index * 0.04, ease: "easeOut" },
+                                      scale: { duration: 0.22, ease: "easeOut" },
                                     }}
                                     whileHover={{ scale: 1.03, y: -2 }}
                                     whileTap={{ scale: 0.97 }}
                                     onClick={() => setSel((s) => ({ ...s, timeline: id }))}
-                                    className={`premium-card relative rounded-2xl p-5 text-left transition-all duration-200 ${
-                                      active ? "ring-2 ring-primary/60" : ""
+                                    onMouseMove={trackWebSpotlight}
+                                    className={`group premium-card relative overflow-hidden rounded-2xl p-5 text-left transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+                                      active ? "option-card-selected" : ""
                                     }`}
                                   >
+                                    <WebSpotlight />
+                                    {active && (
+                                      <span
+                                        style={{ position: "absolute" }}
+                                        className="right-3 top-3 z-10 flex h-5 w-5 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md"
+                                      >
+                                        <Check className="h-3 w-3" strokeWidth={3} />
+                                      </span>
+                                    )}
                                     <p className="font-semibold text-foreground">{label}</p>
                                     <p className="mt-1 text-xs text-muted-foreground">{sub}</p>
                                   </motion.button>

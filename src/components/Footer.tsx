@@ -1,11 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "./Logo";
 import { Container } from "./Container";
-import { ArrowUpRight, Mail, Clock } from "lucide-react";
+import { ArrowUpRight, Mail, Clock, Building2 } from "lucide-react";
 import { SignalTrace } from "./SignalTrace";
 import spiderweb from "@/assets/spiderweb.svg";
-
-const LIVE_PATHS = new Set(["/", "/contact"]);
 
 const COMPANY_LINKS: [string, string][] = [
   ["About", "/about"],
@@ -123,6 +121,16 @@ export function Footer() {
             </h2>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
+                <Building2 className="h-4 w-4 text-primary mt-0.5" />
+                <span className="text-foreground/85">
+                  Ethixweb USA LLC
+                  <br />
+                  <span className="text-xs text-muted-foreground">
+                    Registered in Wyoming, United States
+                  </span>
+                </span>
+              </li>
+              <li className="flex items-start gap-2.5">
                 <Mail className="h-4 w-4 text-primary mt-0.5" />
                 <a
                   href="mailto:info@ethixweb.com"
@@ -143,9 +151,14 @@ export function Footer() {
         </div>
         <div className="footer-divider relative mt-16 flex flex-col gap-4 sm:flex-row items-center justify-between border-t border-border pt-8">
           <SignalTrace className="pointer-events-none absolute left-1/2 top-1/2 hidden h-16 w-16 -translate-x-1/2 -translate-y-1/2 opacity-25 sm:block" />
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Ethixweb. All rights reserved.
-          </p>
+          <div className="text-center sm:text-left">
+            <p className="text-xs text-muted-foreground">
+              © {new Date().getFullYear()} Ethixweb. All rights reserved.
+            </p>
+            <p className="mt-1 text-[11px] text-muted-foreground/70">
+              Ethixweb USA LLC | Registered in Wyoming, United States
+            </p>
+          </div>
           <a
             href="https://calendly.com/ethixweb-agency/30min?month=2026-06"
             target="_blank"
@@ -168,18 +181,12 @@ function FooterCol({ title, links }: { title: string; links: [string, string][] 
       <ul className="space-y-2.5">
         {links.map(([label, to]) => (
           <li key={to}>
-            {LIVE_PATHS.has(to) ? (
-              <Link
-                to={to}
-                className="text-sm text-foreground/80 hover:text-primary transition-colors"
-              >
-                {label}
-              </Link>
-            ) : (
-              <span className="inline-flex cursor-not-allowed select-none">
-                <span className="text-sm text-foreground/65">{label}</span>
-              </span>
-            )}
+            <Link
+              to={to}
+              className="text-sm text-foreground/80 hover:text-primary transition-colors"
+            >
+              {label}
+            </Link>
           </li>
         ))}
       </ul>

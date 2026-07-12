@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { Check, ArrowUpRight, Sparkles } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { Container } from "./Container";
+import { WebSpotlight } from "./WebSpotlight";
+import { trackWebSpotlight } from "@/lib/web-spotlight";
 
 type Row = { label: string; values: [string, string, string] };
 
@@ -75,10 +77,12 @@ export function Pricing() {
           {tiers.map((t, i) => (
             <Reveal key={t.name} delay={i * 0.08}>
               <div
-                className={`relative h-full rounded-3xl p-8 flex flex-col ${
+                onMouseMove={trackWebSpotlight}
+                className={`group relative h-full overflow-hidden rounded-3xl p-8 flex flex-col ${
                   t.highlight ? "bg-gradient-brand shadow-glow text-primary-foreground" : "glass"
                 }`}
               >
+                <WebSpotlight />
                 {t.highlight && (
                   <span className="absolute -top-3 left-8 inline-flex items-center gap-1 rounded-full bg-background px-3 py-1 text-[10px] uppercase tracking-widest text-primary border border-primary/30">
                     <Sparkles className="h-3 w-3" /> Most Popular

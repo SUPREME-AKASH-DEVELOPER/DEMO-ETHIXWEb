@@ -4,6 +4,8 @@ import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
 import { Container } from "@/components/Container";
 import { GlowBlob } from "@/components/GlowBlob";
+import { WebSpotlight } from "@/components/WebSpotlight";
+import { trackWebSpotlight } from "@/lib/web-spotlight";
 import {
   Palette,
   Megaphone,
@@ -152,7 +154,11 @@ function Page() {
           <div className="mt-14 grid md:grid-cols-3 gap-5">
             {whyMatters.map((s, i) => (
               <Reveal key={s.t} delay={i * 0.08}>
-                <div className="glass rounded-3xl p-8 h-full hover:bg-white/[0.06] transition">
+                <div
+                  onMouseMove={trackWebSpotlight}
+                  className="group relative h-full overflow-hidden rounded-3xl glass p-8 hover:bg-white/[0.06] transition"
+                >
+                  <WebSpotlight />
                   <s.i className="h-10 w-10 text-primary mb-5" strokeWidth={1.5} />
                   <h3 className="font-display text-xl font-semibold">{s.t}</h3>
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
@@ -177,8 +183,12 @@ function Page() {
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((s, i) => (
               <Reveal key={s.t} delay={i * 0.05}>
-                <div className="group relative h-full overflow-hidden rounded-3xl glass p-8 hover:bg-white/[0.06] transition">
+                <div
+                  onMouseMove={trackWebSpotlight}
+                  className="group relative h-full overflow-hidden rounded-3xl glass p-8 hover:bg-white/[0.06] transition"
+                >
                   <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-primary/30 blur-3xl opacity-0 group-hover:opacity-100 transition" />
+                  <WebSpotlight />
                   <s.i className="h-10 w-10 text-primary mb-6" strokeWidth={1.5} />
                   <h3 className="font-display text-xl font-semibold">{s.t}</h3>
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>
@@ -203,7 +213,11 @@ function Page() {
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {whyUs.map((s, i) => (
               <Reveal key={s.t} delay={i * 0.06}>
-                <div className="glass rounded-3xl p-7 h-full hover:bg-white/[0.06] transition">
+                <div
+                  onMouseMove={trackWebSpotlight}
+                  className="group relative h-full overflow-hidden rounded-3xl glass p-7 hover:bg-white/[0.06] transition"
+                >
+                  <WebSpotlight />
                   <s.i className="h-9 w-9 text-primary mb-5" strokeWidth={1.5} />
                   <h3 className="font-display text-lg font-semibold">{s.t}</h3>
                   <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{s.d}</p>

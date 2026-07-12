@@ -10,6 +10,8 @@ import {
 import { motion, useReducedMotion } from "framer-motion";
 import { Activity, Radio, TrendingUp, Wrench, Zap } from "lucide-react";
 import { Reveal } from "./Reveal";
+import { WebSpotlight } from "./WebSpotlight";
+import { trackWebSpotlight } from "@/lib/web-spotlight";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type City = {
@@ -1225,13 +1227,15 @@ function StatusCard({
       whileHover={{ y: -4 }}
       whileTap={{ scale: 0.98 }}
       onClick={() => onFocus?.(data.city)}
+      onMouseMove={trackWebSpotlight}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") onFocus?.(data.city);
       }}
-      className="premium-card cursor-pointer rounded-2xl p-5 transition-colors hover:border-primary/35"
+      className="group premium-card relative cursor-pointer overflow-hidden rounded-2xl p-5 transition-colors hover:border-primary/35"
     >
+      <WebSpotlight />
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="relative flex h-2 w-2">
@@ -1279,14 +1283,16 @@ function ActivityTicker({ onFocus }: { onFocus?: (city: string) => void }) {
   }, [items.length]);
   return (
     <div
-      className="premium-card cursor-pointer overflow-hidden rounded-2xl p-4 transition-colors hover:border-primary/35"
+      className="group premium-card relative cursor-pointer overflow-hidden rounded-2xl p-4 transition-colors hover:border-primary/35"
       onClick={() => onFocus?.(items[index].l)}
+      onMouseMove={trackWebSpotlight}
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") onFocus?.(items[index].l);
       }}
     >
+      <WebSpotlight />
       <div className="mb-2 flex items-center gap-2">
         <Radio className="h-3.5 w-3.5 animate-pulse text-primary" />
         <span className="text-[10px] uppercase tracking-widest text-muted-foreground">
