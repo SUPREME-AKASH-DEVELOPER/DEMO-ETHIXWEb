@@ -73,7 +73,7 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
         </div>
 
         {/* Story overlay - the "detail preview" */}
-        <div className="absolute inset-0 flex flex-col justify-center bg-gradient-to-br from-[#1c0f11] to-[#0c0d10] p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+        <div className="absolute inset-0 flex flex-col justify-center bg-gradient-to-br from-[#1c0f11] to-[#0c0d10] p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
           <p className="text-[11px] font-bold uppercase tracking-widest text-primary">
             The challenge
           </p>
@@ -88,7 +88,7 @@ export function CaseStudyCard({ study, index }: { study: CaseStudy; index: numbe
           </p>
           <Link
             to="/contact"
-            className="mt-4 inline-flex translate-y-1 items-center gap-1.5 text-sm font-semibold text-primary opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+            className="mt-4 inline-flex translate-y-1 items-center gap-1.5 text-sm font-semibold text-primary opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded"
           >
             Start a similar project
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />

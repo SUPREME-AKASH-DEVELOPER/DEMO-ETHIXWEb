@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { jsonLdStringify } from "@/lib/json-ld";
 import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { SiteLayout } from "@/components/SiteLayout";
@@ -49,7 +50,7 @@ export const Route = createFileRoute("/careers/")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
+        children: jsonLdStringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Open roles at Ethixweb",

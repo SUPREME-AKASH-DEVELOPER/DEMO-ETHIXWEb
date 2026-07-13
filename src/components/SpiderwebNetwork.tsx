@@ -338,7 +338,10 @@ function HeroBadge({
  * connection lines) rendered in the same coordinate space. */
 export function SpiderwebNetwork({
   mx,
-  my,
+  // Accepted for API symmetry with the mouse-tracking `mx`/`my` pair used
+  // elsewhere (see HeroWebVisual), but this overlay only reacts to
+  // horizontal position - vertical tracking isn't wired in on purpose.
+  my: _my,
   reduceMotion,
   theme,
   showBadges = true,
@@ -446,127 +449,127 @@ export function SpiderwebNetwork({
       onPointerLeave={() => setNearBadge(-1)}
     >
       <div style={{ opacity: webOpacity }}>
-      <img
-        src={spiderweb}
-        alt=""
-        aria-hidden="true"
-        width={1234}
-        height={772}
-        className="h-auto w-full select-none"
-        draggable={false}
-        style={{
-          opacity: 0.95,
-          filter:
-            "brightness(0.82) saturate(0.9) drop-shadow(0 0 5px rgba(229,29,37,0.55)) drop-shadow(0 0 26px rgba(229,29,37,0.32))",
-        }}
-      />
+        <img
+          src={spiderweb}
+          alt=""
+          aria-hidden="true"
+          width={1234}
+          height={772}
+          className="h-auto w-full select-none"
+          draggable={false}
+          style={{
+            opacity: 0.95,
+            filter:
+              "brightness(0.82) saturate(0.9) drop-shadow(0 0 5px rgba(229,29,37,0.55)) drop-shadow(0 0 26px rgba(229,29,37,0.32))",
+          }}
+        />
 
-      {/* Interactive overlay network - same coordinate space as the artwork */}
-      <svg
-        viewBox={`0 0 ${VB_W} ${VB_H}`}
-        className={`absolute inset-0 h-full w-full ${reduceMotion ? "web-static" : ""}`}
-        aria-hidden="true"
-      >
-        {/* Density strands + rings, faint so the drawn web stays the star */}
-        {SPOKE_PATHS.map((d, i) => (
-          <path key={`s${i}`} d={d} className="web-strand" fill="none" />
-        ))}
-        {RING_PATHS.map((d, i) => (
-          <path key={`r${i}`} d={d} className="web-ring" fill="none" />
-        ))}
-
-        {/* Badge connection lines */}
-        {showBadges &&
-          BADGE_GEO.map((g, i) => (
-            <path
-              key={`c${i}`}
-              d={g.line}
-              fill="none"
-              className={`web-connector ${hoveredBadge === i || nearBadge === i ? "is-active" : ""}`}
-            />
+        {/* Interactive overlay network - same coordinate space as the artwork */}
+        <svg
+          viewBox={`0 0 ${VB_W} ${VB_H}`}
+          className={`absolute inset-0 h-full w-full ${reduceMotion ? "web-static" : ""}`}
+          aria-hidden="true"
+        >
+          {/* Density strands + rings, faint so the drawn web stays the star */}
+          {SPOKE_PATHS.map((d, i) => (
+            <path key={`s${i}`} d={d} className="web-strand" fill="none" />
+          ))}
+          {RING_PATHS.map((d, i) => (
+            <path key={`r${i}`} d={d} className="web-ring" fill="none" />
           ))}
 
-        {/* Pulsing nodes, grouped per spoke so an energy pulse can flash them in order */}
-        {SPOKES.map((_, si) => (
-          <g
-            key={`g${si}`}
-            ref={(el) => {
-              spokeGroupRefs.current[si] = el;
-            }}
-          >
-            {NODES.filter((n) => n.spoke === si).map((n, ni) => (
-              <circle
-                key={ni}
-                cx={n.x}
-                cy={n.y}
-                r={2.4}
-                className="web-node"
-                style={
-                  {
-                    "--ni": n.ring,
-                    animationDelay: `${((si * 211 + n.ring * 617) % 3000) - 3000}ms`,
-                  } as React.CSSProperties
-                }
+          {/* Badge connection lines */}
+          {showBadges &&
+            BADGE_GEO.map((g, i) => (
+              <path
+                key={`c${i}`}
+                d={g.line}
+                fill="none"
+                className={`web-connector ${hoveredBadge === i || nearBadge === i ? "is-active" : ""}`}
               />
             ))}
-          </g>
-        ))}
 
-        {/* Energy pulse dots - one per spoke, driven by SMIL, begun from JS on hover */}
-        {SPOKE_PATHS.map((d, i) => (
-          <circle key={`p${i}`} r={3.4} fill="#ffb4b8" opacity="0" className="web-pulse-dot">
-            <animateMotion
-              ref={(el: SVGAnimationElement | null) => {
-                spokeAnimRefs.current[i] = el;
+          {/* Pulsing nodes, grouped per spoke so an energy pulse can flash them in order */}
+          {SPOKES.map((_, si) => (
+            <g
+              key={`g${si}`}
+              ref={(el) => {
+                spokeGroupRefs.current[si] = el;
               }}
-              dur="0.8s"
-              begin="indefinite"
-              path={d}
-              keyPoints="0;1"
-              keyTimes="0;1"
-              calcMode="linear"
-            />
-            <animate
-              ref={(el: SVGAnimationElement | null) => {
-                spokeFadeRefs.current[i] = el;
-              }}
-              attributeName="opacity"
-              values="0;1;1;0"
-              keyTimes="0;0.12;0.75;1"
-              dur="0.8s"
-              begin="indefinite"
-            />
-          </circle>
-        ))}
+            >
+              {NODES.filter((n) => n.spoke === si).map((n, ni) => (
+                <circle
+                  key={ni}
+                  cx={n.x}
+                  cy={n.y}
+                  r={2.4}
+                  className="web-node"
+                  style={
+                    {
+                      "--ni": n.ring,
+                      animationDelay: `${((si * 211 + n.ring * 617) % 3000) - 3000}ms`,
+                    } as React.CSSProperties
+                  }
+                />
+              ))}
+            </g>
+          ))}
 
-        {/* Energy pulses that run hub -> node -> badge when a badge is hovered */}
-        {showBadges &&
-          BADGE_GEO.map((g, i) => (
-            <circle key={`bp${i}`} r={3.2} fill="#ffc2c6" opacity="0" className="web-pulse-dot">
+          {/* Energy pulse dots - one per spoke, driven by SMIL, begun from JS on hover */}
+          {SPOKE_PATHS.map((d, i) => (
+            <circle key={`p${i}`} r={3.4} fill="#ffb4b8" opacity="0" className="web-pulse-dot">
               <animateMotion
                 ref={(el: SVGAnimationElement | null) => {
-                  connectorAnimRefs.current[i] = el;
+                  spokeAnimRefs.current[i] = el;
                 }}
-                dur="0.7s"
+                dur="0.8s"
                 begin="indefinite"
-                path={g.pulse}
+                path={d}
                 keyPoints="0;1"
                 keyTimes="0;1"
                 calcMode="linear"
               />
               <animate
                 ref={(el: SVGAnimationElement | null) => {
-                  connectorFadeRefs.current[i] = el;
+                  spokeFadeRefs.current[i] = el;
                 }}
                 attributeName="opacity"
                 values="0;1;1;0"
-                keyTimes="0;0.15;0.8;1"
-                dur="0.7s"
+                keyTimes="0;0.12;0.75;1"
+                dur="0.8s"
                 begin="indefinite"
               />
             </circle>
           ))}
-      </svg>
+
+          {/* Energy pulses that run hub -> node -> badge when a badge is hovered */}
+          {showBadges &&
+            BADGE_GEO.map((g, i) => (
+              <circle key={`bp${i}`} r={3.2} fill="#ffc2c6" opacity="0" className="web-pulse-dot">
+                <animateMotion
+                  ref={(el: SVGAnimationElement | null) => {
+                    connectorAnimRefs.current[i] = el;
+                  }}
+                  dur="0.7s"
+                  begin="indefinite"
+                  path={g.pulse}
+                  keyPoints="0;1"
+                  keyTimes="0;1"
+                  calcMode="linear"
+                />
+                <animate
+                  ref={(el: SVGAnimationElement | null) => {
+                    connectorFadeRefs.current[i] = el;
+                  }}
+                  attributeName="opacity"
+                  values="0;1;1;0"
+                  keyTimes="0;0.15;0.8;1"
+                  dur="0.7s"
+                  begin="indefinite"
+                />
+              </circle>
+            ))}
+        </svg>
       </div>
 
       <GlassEmblem mx={mx} reduceMotion={reduceMotion} />

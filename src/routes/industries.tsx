@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { jsonLdStringify } from "@/lib/json-ld";
 import { SiteLayout } from "@/components/SiteLayout";
 import { PageHero } from "@/components/PageHero";
 import { Container } from "@/components/Container";
@@ -86,7 +87,7 @@ const fishing = [
   },
 ];
 
-const INDUSTRIES_SCHEMA = JSON.stringify({
+const INDUSTRIES_SCHEMA = jsonLdStringify({
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Industry-Specific Technology Systems",

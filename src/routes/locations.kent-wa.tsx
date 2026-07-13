@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { jsonLdStringify } from "@/lib/json-ld";
 import { SiteLayout } from "@/components/SiteLayout";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -47,7 +48,7 @@ export const Route = createFileRoute("/locations/kent-wa")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
+        children: jsonLdStringify({
           "@context": "https://schema.org",
           "@type": "BreadcrumbList",
           itemListElement: [
@@ -120,7 +121,7 @@ const industries = [
   "Professional Services (lawyers, consultants, healthcare)",
 ];
 
-const LOCAL_BUSINESS_SCHEMA = JSON.stringify({
+const LOCAL_BUSINESS_SCHEMA = jsonLdStringify({
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   name: "Ethixweb",

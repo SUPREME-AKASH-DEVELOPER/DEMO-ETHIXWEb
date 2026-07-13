@@ -14,6 +14,7 @@ import { WebSpotlight } from "@/components/WebSpotlight";
 import { trackWebSpotlight } from "@/lib/web-spotlight";
 import { JOBS, getJob } from "@/lib/careers-data";
 import { getScreeningConfig } from "@/lib/screening-rubrics";
+import { formLabelClass, formInputClass } from "@/lib/form-styles";
 import {
   Mail,
   MapPin,
@@ -285,7 +286,7 @@ function ApplyPage() {
                               ) : (
                                 <span
                                   className={
-                                    active ? "text-primary-foreground" : "text-muted-foreground/70"
+                                    active ? "text-primary-foreground" : "text-muted-foreground"
                                   }
                                 >
                                   {i + 1}
@@ -310,7 +311,7 @@ function ApplyPage() {
                                 : done
                                   ? "text-muted-foreground"
                                   : pending
-                                    ? "text-muted-foreground/60"
+                                    ? "text-muted-foreground"
                                     : ""
                             }`}
                           >
@@ -330,7 +331,7 @@ function ApplyPage() {
                     transition={{ duration: 0.3 }}
                     className={`relative z-20 text-xs font-bold uppercase tracking-[0.22em] ${
                       status === "WAITING FOR YOU"
-                        ? "text-muted-foreground/70"
+                        ? "text-muted-foreground"
                         : status === "SENT ✓"
                           ? "text-primary"
                           : "text-primary/80"
@@ -410,8 +411,16 @@ function ApplyPage() {
                                       initial={{ opacity: 0, y: 10 }}
                                       animate={{ opacity: 1, y: 0, scale: active ? 1.015 : 1 }}
                                       transition={{
-                                        opacity: { duration: 0.24, delay: index * 0.035, ease: "easeOut" },
-                                        y: { duration: 0.24, delay: index * 0.035, ease: "easeOut" },
+                                        opacity: {
+                                          duration: 0.24,
+                                          delay: index * 0.035,
+                                          ease: "easeOut",
+                                        },
+                                        y: {
+                                          duration: 0.24,
+                                          delay: index * 0.035,
+                                          ease: "easeOut",
+                                        },
                                         scale: { duration: 0.22, ease: "easeOut" },
                                       }}
                                       whileHover={{ scale: 1.03, y: -2 }}
@@ -561,7 +570,7 @@ function ApplyPage() {
                                     <span className="text-sm text-foreground/80">
                                       Click to upload your resume
                                     </span>
-                                    <span className="text-xs text-muted-foreground/60">
+                                    <span className="text-xs text-muted-foreground">
                                       PDF, DOC or DOCX · Max 10MB
                                     </span>
                                     <input
@@ -584,7 +593,7 @@ function ApplyPage() {
                                       <p className="truncate text-sm font-medium text-foreground">
                                         {resumeFile.name}
                                       </p>
-                                      <p className="text-xs text-muted-foreground/60">
+                                      <p className="text-xs text-muted-foreground">
                                         {formatBytes(resumeFile.size)} ·{" "}
                                         {resumeStatus === "uploading" ? "Uploading…" : "Uploaded"}
                                       </p>
@@ -593,14 +602,16 @@ function ApplyPage() {
                                       type="button"
                                       onClick={clearResume}
                                       aria-label="Remove resume"
-                                      className="shrink-0 rounded-full p-1.5 text-muted-foreground/60 hover:bg-foreground/10 hover:text-foreground"
+                                      className="shrink-0 rounded-full p-1.5 text-muted-foreground hover:bg-foreground/10 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                                     >
                                       <X className="h-4 w-4" />
                                     </button>
                                   </div>
                                 )}
                                 {resumeError && (
-                                  <p className="mt-2 text-sm text-red-400">{resumeError}</p>
+                                  <p role="alert" className="mt-2 text-sm text-red-400">
+                                    {resumeError}
+                                  </p>
                                 )}
                               </div>
                             </div>
@@ -640,7 +651,11 @@ function ApplyPage() {
                               />
                             </div>
 
-                            {submitError && <p className="text-sm text-red-400">{submitError}</p>}
+                            {submitError && (
+                              <p role="alert" className="text-sm text-red-400">
+                                {submitError}
+                              </p>
+                            )}
                           </motion.div>
                         )}
                       </AnimatePresence>
@@ -772,7 +787,7 @@ function TextField({
   const id = useId();
   return (
     <div>
-      <label htmlFor={id} className="text-xs uppercase tracking-widest text-muted-foreground">
+      <label htmlFor={id} className={formLabelClass}>
         {label} {required && <span className="text-primary">*</span>}
       </label>
       <input
@@ -781,7 +796,9 @@ function TextField({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="mt-2 w-full rounded-xl border border-border bg-input/60 px-4 py-3 text-base sm:text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition"
+        required={required}
+        aria-required={required}
+        className={formInputClass}
       />
     </div>
   );
@@ -801,14 +818,16 @@ function SelectField({
   const id = useId();
   return (
     <div>
-      <label htmlFor={id} className="text-xs uppercase tracking-widest text-muted-foreground">
+      <label htmlFor={id} className={formLabelClass}>
         {label} <span className="text-primary">*</span>
       </label>
       <select
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full rounded-xl border border-border bg-input/60 px-4 py-3 text-base sm:text-sm text-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition"
+        required
+        aria-required="true"
+        className={formInputClass}
       >
         {options.map((o) => (
           <option key={o.value} value={o.value} className="bg-background text-foreground">

@@ -38,7 +38,7 @@ export function JobCard({ job }: { job: Job }) {
         <Link
           to="/careers/apply"
           search={{ role: job.id }}
-          className="magnetic inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-glow"
+          className="magnetic inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
         >
           Apply Now
           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
@@ -46,7 +46,7 @@ export function JobCard({ job }: { job: Job }) {
         <Link
           to="/careers/$slug"
           params={{ slug: job.slug }}
-          className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-5 py-2.5 text-sm font-semibold text-foreground hover:border-primary/40 hover:bg-primary/10 transition-colors"
+          className="inline-flex items-center gap-1.5 rounded-full border border-white/10 px-5 py-3 text-sm font-semibold text-foreground hover:border-primary/40 hover:bg-primary/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
         >
           View Details
         </Link>

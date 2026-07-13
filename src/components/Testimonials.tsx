@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useAnimationFrame, useMotionValue, useReducedMotion } from "framer-motion";
 import { Star, ExternalLink } from "lucide-react";
 import { Reveal } from "./Reveal";
@@ -44,10 +44,12 @@ function StarRow({
   className?: string;
 }) {
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-1" role="img" aria-label={`${count} out of ${total} stars`}>
       {Array.from({ length: total }).map((_, i) => {
         const color = i < count ? brand : "#6b7280";
-        return <Star key={i} className={className} style={{ fill: color, color }} />;
+        return (
+          <Star key={i} aria-hidden="true" className={className} style={{ fill: color, color }} />
+        );
       })}
     </div>
   );
@@ -94,7 +96,18 @@ function InfiniteCarousel({ brand }: { brand: string }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const initialized = useRef(false);
   const dragging = useRef(false);
+  const visible = useRef(false);
   const reduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const el = trackRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => {
+      visible.current = entry.isIntersecting;
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   useAnimationFrame((_, delta) => {
     const trackW = trackRef.current?.scrollWidth ?? 0;
@@ -105,6 +118,7 @@ function InfiniteCarousel({ brand }: { brand: string }) {
       initialized.current = true;
       return;
     }
+    if (!visible.current) return;
     if (!dragging.current && !reduceMotion) {
       x.set(x.get() + 0.4 * delta * 0.06);
     }

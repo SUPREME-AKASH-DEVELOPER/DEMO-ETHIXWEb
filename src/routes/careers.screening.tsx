@@ -143,7 +143,10 @@ function ScreeningPage() {
               <Reveal key="intro">
                 <div className="premium-card rounded-3xl p-6 sm:p-8">
                   {stage === "error" && (
-                    <p className="mb-4 rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-400">
+                    <p
+                      role="alert"
+                      className="mb-4 rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-400"
+                    >
                       {errorMsg}
                     </p>
                   )}

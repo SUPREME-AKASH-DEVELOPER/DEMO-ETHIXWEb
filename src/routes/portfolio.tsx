@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { jsonLdStringify } from "@/lib/json-ld";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Check } from "lucide-react";
@@ -39,7 +40,7 @@ export const Route = createFileRoute("/portfolio")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
+        children: jsonLdStringify({
           "@context": "https://schema.org",
           "@type": "ItemList",
           name: "Ethixweb Portfolio",
@@ -70,7 +71,8 @@ function Portfolio() {
   const [filter, setFilter] = useState<string>("All");
 
   const visible = useMemo(
-    () => (filter === "All" ? CASE_STUDIES : CASE_STUDIES.filter((s) => s.services.includes(filter))),
+    () =>
+      filter === "All" ? CASE_STUDIES : CASE_STUDIES.filter((s) => s.services.includes(filter)),
     [filter],
   );
 
@@ -79,7 +81,12 @@ function Portfolio() {
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <section className="relative -mt-24 overflow-hidden bg-gradient-hero pb-16 pt-36 sm:pb-24 sm:pt-44">
         <div className="absolute inset-0 grid-bg opacity-50" />
-        <GlowBlob size="lg" color="primary" blur={100} className="left-1/2 top-0 -translate-x-1/2" />
+        <GlowBlob
+          size="lg"
+          color="primary"
+          blur={100}
+          className="left-1/2 top-0 -translate-x-1/2"
+        />
         <div className="pointer-events-none absolute inset-x-0 top-24 mx-auto w-full max-w-5xl scale-110 opacity-15">
           <HeroWebVisual showBadges={false} />
         </div>
@@ -108,9 +115,9 @@ function Portfolio() {
           </Reveal>
           <Reveal delay={0.16}>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Every project on this page started the same way: understanding real users, finding
-              the friction that was costing the business money, and shipping a measurable fix -
-              not just a redesign.
+              Every project on this page started the same way: understanding real users, finding the
+              friction that was costing the business money, and shipping a measurable fix - not just
+              a redesign.
             </p>
           </Reveal>
           <Reveal delay={0.24}>
@@ -214,7 +221,12 @@ function Portfolio() {
         <Reveal>
           <Container className="relative overflow-hidden rounded-[2rem] glass-strong p-12 text-center">
             <div className="pointer-events-none absolute inset-0 grid-bg opacity-20" />
-            <GlowBlob size="md" color="primary" blur={110} className="left-1/2 top-0 -translate-x-1/2 -translate-y-1/2" />
+            <GlowBlob
+              size="md"
+              color="primary"
+              blur={110}
+              className="left-1/2 top-0 -translate-x-1/2 -translate-y-1/2"
+            />
             <div className="relative">
               <h2 className="pb-1 font-display text-4xl font-bold text-gradient sm:text-5xl">
                 Let&apos;s create your next success story.

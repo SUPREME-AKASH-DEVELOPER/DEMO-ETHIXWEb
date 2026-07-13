@@ -42,7 +42,9 @@ export function AnimatedStat({
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const reduceMotion = useReducedMotion();
   const parsed = parseStat(value);
-  const [display, setDisplay] = useState(parsed ? formatNumber(0, parsed.decimals, parsed.hasComma) : value);
+  const [display, setDisplay] = useState(
+    parsed ? formatNumber(0, parsed.decimals, parsed.hasComma) : value,
+  );
 
   useEffect(() => {
     if (!parsed || !inView) return;

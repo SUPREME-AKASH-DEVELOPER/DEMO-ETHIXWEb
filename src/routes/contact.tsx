@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { jsonLdStringify } from "@/lib/json-ld";
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { SiteLayout } from "@/components/SiteLayout";
@@ -10,6 +11,7 @@ import { useTheme } from "@/components/ThemeProvider";
 import { SystemConstellation } from "@/components/SystemConstellation";
 import { WebSpotlight } from "@/components/WebSpotlight";
 import { trackWebSpotlight } from "@/lib/web-spotlight";
+import { formLabelClass, formInputClass } from "@/lib/form-styles";
 import {
   Mail,
   MapPin,
@@ -92,7 +94,7 @@ export const Route = createFileRoute("/contact")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
+        children: jsonLdStringify({
           "@context": "https://schema.org",
           "@type": "ContactPage",
           name: "Contact Ethixweb",
@@ -224,10 +226,17 @@ function ContactBody() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("Request failed");
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        throw new Error(data?.error || "Request failed");
+      }
       setSent(true);
-    } catch {
-      setSubmitError("Something went wrong. Please email info@ethixweb.com directly.");
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please email info@ethixweb.com directly.",
+      );
     } finally {
       setSubmitting(false);
     }
@@ -348,7 +357,7 @@ function ContactBody() {
                               ) : (
                                 <span
                                   className={
-                                    active ? "text-primary-foreground" : "text-muted-foreground/70"
+                                    active ? "text-primary-foreground" : "text-muted-foreground"
                                   }
                                 >
                                   {i + 1}
@@ -373,7 +382,7 @@ function ContactBody() {
                                 : done
                                   ? "text-muted-foreground"
                                   : pending
-                                    ? "text-muted-foreground/60"
+                                    ? "text-muted-foreground"
                                     : ""
                             }`}
                           >
@@ -394,7 +403,7 @@ function ContactBody() {
                     transition={{ duration: 0.3 }}
                     className={`relative z-20 text-xs font-bold uppercase tracking-[0.22em] ${
                       status === "WAITING FOR YOU"
-                        ? "text-muted-foreground/70"
+                        ? "text-muted-foreground"
                         : status === "SENT ✓"
                           ? "text-primary"
                           : "text-primary/80"
@@ -477,7 +486,11 @@ function ContactBody() {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0, scale: active ? 1.015 : 1 }}
                                     transition={{
-                                      opacity: { duration: 0.24, delay: index * 0.035, ease: "easeOut" },
+                                      opacity: {
+                                        duration: 0.24,
+                                        delay: index * 0.035,
+                                        ease: "easeOut",
+                                      },
                                       y: { duration: 0.24, delay: index * 0.035, ease: "easeOut" },
                                       scale: { duration: 0.22, ease: "easeOut" },
                                     }}
@@ -566,7 +579,9 @@ function ContactBody() {
                                 ))}
                               </div>
                               {isDirect && submitError && (
-                                <p className="mt-3 text-sm text-red-400">{submitError}</p>
+                                <p role="alert" className="mt-3 text-sm text-red-400">
+                                  {submitError}
+                                </p>
                               )}
                             </div>
                           </motion.div>
@@ -594,7 +609,11 @@ function ContactBody() {
                                     initial={{ opacity: 0, y: 10 }}
                                     animate={{ opacity: 1, y: 0, scale: active ? 1.015 : 1 }}
                                     transition={{
-                                      opacity: { duration: 0.24, delay: index * 0.04, ease: "easeOut" },
+                                      opacity: {
+                                        duration: 0.24,
+                                        delay: index * 0.04,
+                                        ease: "easeOut",
+                                      },
                                       y: { duration: 0.24, delay: index * 0.04, ease: "easeOut" },
                                       scale: { duration: 0.22, ease: "easeOut" },
                                     }}
@@ -687,7 +706,11 @@ function ContactBody() {
                                 type="tel"
                                 required={false}
                               />
-                              {submitError && <p className="text-sm text-red-400">{submitError}</p>}
+                              {submitError && (
+                                <p role="alert" className="text-sm text-red-400">
+                                  {submitError}
+                                </p>
+                              )}
                             </form>
                           </motion.div>
                         )}
@@ -920,16 +943,10 @@ function Field({
 }) {
   return (
     <div>
-      <label className="text-xs uppercase tracking-widest text-muted-foreground" htmlFor={name}>
+      <label className={formLabelClass} htmlFor={name}>
         {label}
       </label>
-      <input
-        id={name}
-        name={name}
-        type={type}
-        required={required}
-        className="mt-2 w-full rounded-xl border border-border bg-input/60 px-4 py-3 text-base sm:text-sm text-foreground placeholder:text-muted-foreground/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/30 transition"
-      />
+      <input id={name} name={name} type={type} required={required} className={formInputClass} />
     </div>
   );
 }

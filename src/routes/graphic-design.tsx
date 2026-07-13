@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { jsonLdStringify } from "@/lib/json-ld";
 import { SiteLayout } from "@/components/SiteLayout";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -116,7 +117,7 @@ const whyUs = [
   { i: Eye, t: "Attention to Detail", d: "Every design element crafted for maximum impact." },
 ];
 
-const SERVICE_SCHEMA = JSON.stringify({
+const SERVICE_SCHEMA = jsonLdStringify({
   "@context": "https://schema.org",
   "@type": "Service",
   name: "Graphic Design & Branding",

@@ -134,7 +134,7 @@ export function Footer() {
                 <Mail className="h-4 w-4 text-primary mt-0.5" />
                 <a
                   href="mailto:info@ethixweb.com"
-                  className="text-foreground/85 hover:text-primary"
+                  className="text-foreground/85 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded"
                 >
                   info@ethixweb.com
                 </a>
@@ -163,7 +163,7 @@ export function Footer() {
             href="https://calendly.com/ethixweb-agency/30min?month=2026-06"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative z-10 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+            className="group relative z-10 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded"
           >
             Book an appointment{" "}
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
@@ -183,7 +183,7 @@ function FooterCol({ title, links }: { title: string; links: [string, string][] 
           <li key={to}>
             <Link
               to={to}
-              className="text-sm text-foreground/80 hover:text-primary transition-colors"
+              className="text-sm text-foreground/80 hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded"
             >
               {label}
             </Link>

@@ -21,7 +21,7 @@ function ThemeToggle() {
   return (
     <motion.button
       onClick={toggle}
-      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
+      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
       whileTap={{ scale: 0.9 }}
       aria-label="Toggle theme"
     >
@@ -48,9 +48,18 @@ export function Navbar() {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 px-4 pt-4">
@@ -66,9 +75,10 @@ export function Navbar() {
               <Link
                 key={l.to}
                 to={l.to}
-                className="flex h-9 items-center px-3.5 text-sm text-muted-foreground/80 transition-colors hover:text-foreground"
+                className="flex h-9 items-center px-3.5 text-sm text-muted-foreground/80 transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-lg"
                 activeProps={{
-                  className: "flex h-9 items-center px-3.5 text-sm font-medium text-foreground",
+                  className:
+                    "flex h-9 items-center px-3.5 text-sm font-medium text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded-lg",
                 }}
                 activeOptions={{ exact: l.to === "/" }}
               >
@@ -81,7 +91,7 @@ export function Navbar() {
             <ThemeToggle />
             <Link
               to="/contact"
-              className="magnetic group inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4.5 text-sm font-semibold text-primary-foreground shadow-glow"
+              className="magnetic group inline-flex h-9 items-center gap-2 rounded-full bg-primary px-4.5 text-sm font-semibold text-primary-foreground shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
             >
               Start a project
               <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-45" />
@@ -90,9 +100,11 @@ export function Navbar() {
           <div className="lg:hidden flex items-center gap-2">
             <ThemeToggle />
             <button
-              className="inline-flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               onClick={() => setOpen((v) => !v)}
               aria-label="Menu"
+              aria-expanded={open}
+              aria-controls="mobile-nav-menu"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -101,6 +113,7 @@ export function Navbar() {
         <AnimatePresence>
           {open && (
             <motion.div
+              id="mobile-nav-menu"
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
@@ -112,7 +125,7 @@ export function Navbar() {
                     key={l.to}
                     to={l.to}
                     onClick={() => setOpen(false)}
-                    className="px-4 py-3 rounded-lg hover:bg-foreground/5 text-foreground"
+                    className="px-4 py-3 rounded-lg hover:bg-foreground/5 text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                   >
                     {l.label}
                   </Link>
@@ -120,7 +133,7 @@ export function Navbar() {
                 <Link
                   to="/contact"
                   onClick={() => setOpen(false)}
-                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground"
+                  className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                 >
                   Start a project <ArrowUpRight className="h-4 w-4" />
                 </Link>

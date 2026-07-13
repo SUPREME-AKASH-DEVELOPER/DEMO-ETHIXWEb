@@ -59,7 +59,7 @@ export function IconCard({ icon: Icon, title, description, to }: CardGridItem) {
       <Link
         to={to}
         onMouseMove={trackWebSpotlight}
-        className="glass group relative block h-full overflow-hidden rounded-3xl p-7 transition hover:bg-white/[0.06]"
+        className="glass group relative block h-full overflow-hidden rounded-3xl p-7 transition hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
       >
         {content}
       </Link>

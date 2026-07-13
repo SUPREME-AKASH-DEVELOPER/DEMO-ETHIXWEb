@@ -108,7 +108,7 @@ export function Pricing() {
                   {t.blurb}
                 </p>
                 <ul className="mt-6 space-y-2.5 text-sm flex-1">
-                  {rows.map((r, idx) => (
+                  {rows.map((r) => (
                     <li key={r.label} className="flex items-start gap-2">
                       <Check
                         className={`h-4 w-4 mt-0.5 flex-none ${t.highlight ? "text-primary-foreground" : "text-primary"}`}
@@ -128,7 +128,7 @@ export function Pricing() {
                 </ul>
                 <Link
                   to="/contact"
-                  className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition ${
+                  className={`mt-8 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
                     t.highlight
                       ? "bg-background text-foreground hover:scale-[1.03]"
                       : "bg-gradient-brand text-primary-foreground hover:scale-[1.03]"

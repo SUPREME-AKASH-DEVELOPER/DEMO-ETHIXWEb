@@ -1,4 +1,5 @@
 import { lazy, Suspense } from "react";
+import { jsonLdStringify } from "@/lib/json-ld";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import {
@@ -101,7 +102,7 @@ export const Route = createFileRoute("/")({
     scripts: [
       {
         type: "application/ld+json",
-        children: JSON.stringify({
+        children: jsonLdStringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           name: "Ethixweb",
